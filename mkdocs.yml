@@ -104,6 +104,9 @@ extra_css:
 nav:
   - Domů:
       - index.md
+  - IR Vysílač/Přijímač:
+      - IR/README.md
+      - IR/manual.md
   # - Template:
   #     - template/README.md
   #     - template/manual.md
