@@ -1,0 +1,51 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  # schedule:
+  #   - cron: '0 0 1 * *' # every month
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      
+      - name: Cache MkDocs Material
+        uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ github.ref_name }}-${{ hashFiles('requirements.txt') }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-${{ github.ref_name }}-
+            mkdocs-material-
+      
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force

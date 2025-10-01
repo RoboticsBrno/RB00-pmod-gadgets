@@ -1,0 +1,43 @@
+name: Test GitHub Pages build
+
+on:
+  pull_request:
+    branches:
+      - master
+      - main
+  # schedule:
+  #   - cron: '0 0 1 * *' # every month
+
+permissions:
+  contents: read
+
+jobs:
+  test-build:
+    name: Test MkDocs build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      
+      - name: Cache MkDocs Material
+        uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ github.ref_name }}-${{ hashFiles('requirements.txt') }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-${{ github.ref_name }}-
+            mkdocs-material-
+      
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      
+      - name: Build documentation
+        run: mkdocs build --strict

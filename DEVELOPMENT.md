@@ -1,0 +1,95 @@
+# Jak na vývoj
+
+## Instalace nástrojů
+Budeme potřebovat:
+- `git`
+- `python3` + `pip` (na Windows doporučuji z Win storu)
+
+## Repo
+Naklonujeme si repozitář:
+
+```bash
+git clone https://github.com/RoboticsBrno/pmod-gadgets.git
+```
+nebo
+```bash
+git clone git@github.com:RoboticsBrno/pmod-gadgets.git
+```
+
+## Konfigurace
+
+Otevři projekt a v terminálu spusť:
+
+pro linux a macos:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+```
+
+pro windows CMD:
+```bash
+python3 -m venv .venv
+./.venv/Scripts/Activate.bat
+python3 -m pip install -r requirements.txt
+```
+
+pro windows Powershell:
+```bash
+python3 -m venv .venv
+./.venv/Scripts/Activate.ps1
+python3 -m pip install -r requirements.txt
+```
+
+## Znovu otevření už nainstalovaných toolů (vscode to někdy dělá sám)
+pro linux a macos:
+```bash
+source .venv/bin/activate
+```
+
+pro windows CMD: 
+```bash
+./.venv/Scripts/Activate.bat
+```
+
+pro windows Powershell: 
+```bash
+./.venv/Scripts/Activate.ps1
+```
+
+## Práce s dokumentací
+
+Lokální spuštění dokumentace:
+ - `python3 -m mkdocs serve`
+
+## Práce s obrázky
+
+Obrázky přidávej do podsložek v `docs` podle adresy stránky, na které se mají zobrazit.
+Uvnitř této stránky vytvoř složku `assets-large` a vlož do ní obrázky v plné velikosti.
+
+Plugin [mkdocs-resize-images](https://github.com/JakubAndrysek/mkdocs-resize-images) automaticky rozpozná
+změny v adresáři `assets-large` a při buildu zmenší obrázky do požadované velikosti a uloží je do složky `assets`.
+Složka `assets-large` se neukládá do gitu, protože by byla zbytečně velká. Velké fotky si necháme jen lokálně a po dokončení návodu je můžete smazat.
+
+Podporovené soubory jsou `.jpg`, `.jpeg`, `.png`, `.gif`, `.svg`.
+
+
+## Vychytávky
+Pro více rozjetých dokumentací je možné použít `--dev-addr 127.0.0.1:8001` pro specifikaci adresy a portu.
+
+## Problémy s číslováním položek
+Pokud se ti v dokumentaci nečíslují položky správně, zkus odsazovat položky mezi číselnými odrážkami pomocí tabulátoru. Například:
+```markdown
+1. První položka
+    první text
+2. Druhá položka
+    druhý text
+```
+A ne: 
+```markdown
+1. První položka
+první text
+2. Druhá položka
+druhý text
+```
+Některé editory to vrací vše na začátek!
