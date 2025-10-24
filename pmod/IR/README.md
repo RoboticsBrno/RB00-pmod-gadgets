@@ -4,7 +4,9 @@ IR přijímač/vysílač založený na [IR diodě](https://www.laskakit.cz/ir-vy
 
 Jsou potřeba 3 piny
 - RX (signál z VS1838B)
-- TX
+- TX (vysílaný signál)
 - CLK (38 KHz signál který očekává přijímač na druhé straně)
 
 ![Schema](assets/schema.png)
+![PCB](assets/pcb.png)
+![3D PCB](assets/default.png)
