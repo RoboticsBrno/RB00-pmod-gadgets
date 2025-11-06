@@ -107,6 +107,9 @@ nav:
   - IR Vysílač/Přijímač:
       - IR/README.md
       - IR/manual.md
+  - DPad:
+      - DPad/README.md
+      - DPad/manual.md
   # - Template:
   #     - template/README.md
   #     - template/manual.md
