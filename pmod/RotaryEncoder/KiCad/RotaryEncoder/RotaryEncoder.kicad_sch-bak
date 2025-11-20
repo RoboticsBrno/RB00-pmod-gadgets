@@ -526,23 +526,24 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Mechanical:MountingHole"
+		(symbol "Device:RotaryEncoder_Switch"
 			(pin_names
-				(offset 1.016)
+				(offset 0.254)
+				(hide yes)
 			)
 			(exclude_from_sim no)
-			(in_bom no)
+			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "H"
-				(at 0 5.08 0)
+			(property "Reference" "SW"
+				(at 0 6.604 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "MountingHole"
-				(at 0 3.175 0)
+			(property "Value" "RotaryEncoder_Switch"
+				(at 0 -6.604 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -550,7 +551,7 @@
 				)
 			)
 			(property "Footprint" ""
-				(at 0 0 0)
+				(at -3.81 4.064 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -559,6 +560,15 @@
 				)
 			)
 			(property "Datasheet" "~"
+				(at 0 6.604 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Rotary encoder, dual channel, incremental quadrate outputs, with switch"
 				(at 0 0 0)
 				(effects
 					(font
@@ -567,7 +577,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Mounting Hole without connection"
+			(property "ki_keywords" "rotary switch encoder switch push button"
 				(at 0 0 0)
 				(effects
 					(font
@@ -576,7 +586,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "mounting hole"
+			(property "ki_fp_filters" "RotaryEncoder*Switch*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -585,135 +595,10 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "MountingHole*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "MountingHole_0_1"
-				(circle
-					(center 0 0)
-					(radius 1.27)
-					(stroke
-						(width 1.27)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "SamacSys_Parts:PEC11R-4325F-S0012"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 21.59 15.24 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Value" "PEC11R-4325F-S0012"
-				(at 21.59 12.7 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "PEC11R4325FS0012"
-				(at 21.59 -87.3 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://www.bourns.com/docs/product-datasheets/pec11r.pdf"
-				(at 21.59 -187.3 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Description" "Rotary Encoder Mechanical 12 Quadrature (Incremental) Vertical"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Height" "31.5"
-				(at 21.59 -387.3 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Part Number" "652-PEC11R4325FS0012"
-				(at 21.59 -487.3 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Bourns/PEC11R-4325F-S0012?qs=Zq5ylnUbLm4xKJFZnkQTMQ%3D%3D"
-				(at 21.59 -587.3 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Name" "Bourns"
-				(at 21.59 -687.3 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Part_Number" "PEC11R-4325F-S0012"
-				(at 21.59 -787.3 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(symbol "PEC11R-4325F-S0012_1_1"
+			(symbol "RotaryEncoder_Switch_0_1"
 				(rectangle
-					(start 5.08 10.16)
-					(end 20.32 -17.78)
+					(start -5.08 5.08)
+					(end 5.08 -5.08)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -722,17 +607,231 @@
 						(type background)
 					)
 				)
+				(polyline
+					(pts
+						(xy -5.08 2.54) (xy -3.81 2.54) (xy -3.81 2.032)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.08 0) (xy -3.81 0) (xy -3.81 -1.016) (xy -3.302 -2.032)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.08 -2.54) (xy -3.81 -2.54) (xy -3.81 -2.032)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -4.318 0) (xy -3.81 0) (xy -3.81 1.016) (xy -3.302 2.032)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center -3.81 0)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.635 -1.778) (xy -0.635 1.778)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center -0.381 0)
+					(radius 1.905)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.381 -1.778) (xy -0.381 1.778)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -0.381 -2.794)
+					(mid -3.0988 -0.0635)
+					(end -0.381 2.667)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.127 1.778) (xy -0.127 -1.778)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 2.921) (xy -0.508 2.667) (xy 0.127 2.286)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 -3.048) (xy -0.508 -2.794) (xy 0.127 -2.413)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 1.016) (xy 3.81 -1.016)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 0) (xy 3.429 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 4.318 1.016)
+					(radius 0.127)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 4.318 -1.016)
+					(radius 0.127)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 4.318 2.54) (xy 4.318 1.016)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 -2.54) (xy 4.318 -2.54) (xy 4.318 -1.016)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "RotaryEncoder_Switch_1_1"
 				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "MH1"
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "A"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "3"
+					(number "A"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -741,34 +840,16 @@
 					)
 				)
 				(pin passive line
-					(at 10.16 15.24 270)
-					(length 5.08)
-					(name "COM"
+					(at -7.62 0 0)
+					(length 2.54)
+					(name "C"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 10.16 -22.86 90)
-					(length 5.08)
-					(name "A_CHANNEL"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A1"
+					(number "C"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -777,34 +858,16 @@
 					)
 				)
 				(pin passive line
-					(at 12.7 15.24 270)
-					(length 5.08)
-					(name "NO"
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "B"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 12.7 -22.86 90)
-					(length 5.08)
-					(name "C_COMMON"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "C1"
+					(number "B"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -813,16 +876,16 @@
 					)
 				)
 				(pin passive line
-					(at 15.24 -22.86 90)
-					(length 5.08)
-					(name "B_CHANNEL"
+					(at 7.62 2.54 180)
+					(length 2.54)
+					(name "S1"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "B1"
+					(number "S1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -831,16 +894,16 @@
 					)
 				)
 				(pin passive line
-					(at 25.4 0 180)
-					(length 5.08)
-					(name "MH2"
+					(at 7.62 -2.54 180)
+					(length 2.54)
+					(name "S2"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "4"
+					(number "S2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1099,16 +1162,22 @@
 		(uuid "dcc539ac-0c6f-4a0a-b522-e2915d41cba0")
 	)
 	(junction
+		(at 63.5 50.8)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "07dfe0d9-eb2a-4072-a687-16e2da3c33f6")
+	)
+	(junction
+		(at 104.14 50.8)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "170f9082-b3c1-42dc-b7a3-e2b09d9d918d")
+	)
+	(junction
 		(at 63.5 69.85)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "27ccbec1-39f7-47d6-978c-38a4bab5dc23")
-	)
-	(junction
-		(at 63.5 50.8)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3e3700c3-a0c3-4c75-849c-59adc3eb47ea")
 	)
 	(junction
 		(at 63.5 41.91)
@@ -1117,32 +1186,20 @@
 		(uuid "6008fb7c-dbe2-4696-a1dd-6bde52165add")
 	)
 	(junction
-		(at 127 66.04)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "99ebbd73-5134-46c8-904c-a183cc8987f3")
-	)
-	(junction
 		(at 63.5 59.69)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "abd0a825-346b-4d63-85b8-28b870f0d346")
-	)
-	(junction
-		(at 127 54.61)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d24460a4-1fe1-4d28-a439-2502bfe426a6")
+		(uuid "6310ae7f-426a-461a-9aeb-214f4239c2f1")
 	)
 	(wire
 		(pts
-			(xy 116.84 54.61) (xy 127 54.61)
+			(xy 99.06 50.8) (xy 104.14 50.8)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "04a83b20-e6e5-4283-9290-77dfd1e18104")
+		(uuid "03cb75d0-e705-426f-8af4-bca915c0be14")
 	)
 	(wire
 		(pts
@@ -1166,13 +1223,13 @@
 	)
 	(wire
 		(pts
-			(xy 130.81 66.04) (xy 127 66.04)
+			(xy 83.82 55.88) (xy 72.39 55.88)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2c24b60a-811a-413d-9ad7-05fe723c146d")
+		(uuid "3ec34303-7361-4a68-8dad-2663fcac20d3")
 	)
 	(wire
 		(pts
@@ -1186,16 +1243,6 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 59.69) (xy 78.74 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "60db8d23-31b9-4586-bd91-3ba2e31e546c")
-	)
-	(wire
-		(pts
 			(xy 63.5 38.1) (xy 63.5 41.91)
 		)
 		(stroke
@@ -1206,33 +1253,33 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 57.15) (xy 76.2 57.15)
+			(xy 63.5 59.69) (xy 72.39 59.69)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7d0c172f-3c25-405c-9487-ec26230ac8b7")
+		(uuid "73d987bb-e8e8-4224-9f83-22aec027dfe3")
 	)
 	(wire
 		(pts
-			(xy 127 54.61) (xy 127 66.04)
+			(xy 63.5 50.8) (xy 83.82 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7e26013f-c0dc-498c-a060-d2fe28b468b8")
+	)
+	(wire
+		(pts
+			(xy 104.14 50.8) (xy 106.68 50.8)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "832aa5e4-1bb8-44b9-ab66-220cc196df4f")
-	)
-	(wire
-		(pts
-			(xy 78.74 54.61) (xy 77.47 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "94ee150c-50ca-460f-b913-8f17fe9d81ac")
 	)
 	(wire
 		(pts
@@ -1246,17 +1293,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 54.61) (xy 77.47 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b58234dd-5b18-47c0-8510-63b721c215a5")
-	)
-	(wire
-		(pts
-			(xy 127 54.61) (xy 132.08 54.61)
+			(xy 104.14 50.8) (xy 104.14 45.72)
 		)
 		(stroke
 			(width 0)
@@ -1266,27 +1303,17 @@
 	)
 	(wire
 		(pts
-			(xy 127 66.04) (xy 127 69.85)
+			(xy 72.39 55.88) (xy 72.39 59.69)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "bac73f74-7195-46cf-a2a5-feac6e92bf7a")
-	)
-	(wire
-		(pts
-			(xy 77.47 50.8) (xy 63.5 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c6714565-8938-403b-b749-58d58028b2b7")
+		(uuid "dddfb1f0-37b1-4c5e-889c-0b6b5353eb85")
 	)
 	(global_label "A"
 		(shape input)
-		(at 27.94 44.45 0)
+		(at 27.94 52.07 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1296,7 +1323,7 @@
 		)
 		(uuid "00f18ed0-e4ec-4b68-959f-252b6bed4b5c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 32.0138 44.45 0)
+			(at 32.0138 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1308,7 +1335,7 @@
 	)
 	(global_label "B"
 		(shape input)
-		(at 27.94 46.99 0)
+		(at 27.94 49.53 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1318,7 +1345,7 @@
 		)
 		(uuid "290ae423-ad64-4ae0-9e2b-9e767ae58f90")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 32.1952 46.99 0)
+			(at 32.1952 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1330,7 +1357,7 @@
 	)
 	(global_label "BTN"
 		(shape input)
-		(at 27.94 49.53 0)
+		(at 27.94 46.99 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1340,7 +1367,7 @@
 		)
 		(uuid "5c8ebdf0-d030-4b3e-b5f0-54010c340687")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 34.4933 49.53 0)
+			(at 34.4933 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1374,22 +1401,22 @@
 	)
 	(global_label "BTN"
 		(shape output)
-		(at 127 69.85 270)
+		(at 106.68 50.8 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "b31c1ef2-6b21-41af-89ab-34cc6b81cd74")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 127 76.4033 90)
+			(at 113.2333 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -1413,70 +1440,6 @@
 				)
 				(justify right)
 				(hide yes)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 158.75 59.69 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "098b9550-9537-4e93-bf2f-baa68e3b9371")
-		(property "Reference" "H4"
-			(at 161.29 58.4199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "MountingHole"
-			(at 161.29 60.9599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
-			(at 158.75 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 158.75 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Mounting Hole without connection"
-			(at 158.75 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "RotaryEncoder"
-				(path "/4e64649f-140d-4c43-8072-32119b91f969"
-					(reference "H4")
-					(unit 1)
-				)
 			)
 		)
 	)
@@ -1542,73 +1505,6 @@
 			(project "RotaryEncoder"
 				(path "/4e64649f-140d-4c43-8072-32119b91f969"
 					(reference "#PWR06")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 146.05 66.04 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0e987be4-6d59-4975-9985-78c60c07261f")
-		(property "Reference" "#PWR010"
-			(at 152.4 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 149.86 66.0401 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 146.05 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 146.05 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 146.05 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "86c9350f-7760-4157-9c6d-84a5809f3827")
-		)
-		(instances
-			(project "RotaryEncoder"
-				(path "/4e64649f-140d-4c43-8072-32119b91f969"
-					(reference "#PWR010")
 					(unit 1)
 				)
 			)
@@ -1750,16 +1646,16 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x06")
-		(at 22.86 49.53 0)
-		(mirror y)
+		(at 22.86 52.07 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "3797fba1-65b4-4a6c-b0bc-dcce97b60807")
 		(property "Reference" "J1"
-			(at 22.86 63.5 0)
+			(at 22.86 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1767,15 +1663,15 @@
 			)
 		)
 		(property "Value" "Conn_01x06"
-			(at 22.86 60.96 0)
+			(at 22.86 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical"
-			(at 22.86 49.53 0)
+		(property "Footprint" ""
+			(at 22.86 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1784,7 +1680,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 22.86 49.53 0)
+			(at 22.86 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1793,7 +1689,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 22.86 49.53 0)
+			(at 22.86 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1829,33 +1725,17 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 134.62 66.04 90)
+		(lib_id "power:GND")
+		(at 99.06 55.88 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "448d7657-b5dc-4871-abbb-ece0e340920d")
-		(property "Reference" "R6"
-			(at 134.62 72.39 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10K"
-			(at 134.62 69.85 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
-			(at 134.62 67.818 90)
+		(uuid "3dd43600-0d37-4f61-8a7a-dd865da99f1f")
+		(property "Reference" "#PWR08"
+			(at 105.41 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1863,8 +1743,17 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 134.62 66.04 0)
+		(property "Value" "GND"
+			(at 102.87 55.8799 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 99.06 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1872,8 +1761,17 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 134.62 66.04 0)
+		(property "Datasheet" ""
+			(at 99.06 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 99.06 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1882,15 +1780,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "6ec91a4a-c081-4065-8d5d-0d898c0acf82")
-		)
-		(pin "2"
-			(uuid "6d6d8f56-5315-4bcc-b3e9-7bf2130c6dfe")
+			(uuid "92bca51d-97d3-4720-b02f-1a65f4f2cc1f")
 		)
 		(instances
 			(project "RotaryEncoder"
 				(path "/4e64649f-140d-4c43-8072-32119b91f969"
-					(reference "R6")
+					(reference "#PWR08")
 					(unit 1)
 				)
 			)
@@ -1965,73 +1860,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 101.6 69.85 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5674c314-3108-4bc7-8d3f-9f4e90b3fa39")
-		(property "Reference" "#PWR012"
-			(at 101.6 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 101.6 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 101.6 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 101.6 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 101.6 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "53b24164-ab98-48b3-83c8-c4902cc2d53c")
-		)
-		(instances
-			(project "RotaryEncoder"
-				(path "/4e64649f-140d-4c43-8072-32119b91f969"
-					(reference "#PWR012")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 76.2 57.15 270)
+		(at 83.82 53.34 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2040,7 +1869,7 @@
 		(fields_autoplaced yes)
 		(uuid "5e907993-e453-4c06-8044-75fe2c4ed1d6")
 		(property "Reference" "#PWR07"
-			(at 69.85 57.15 0)
+			(at 77.47 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2049,7 +1878,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 72.39 57.1499 90)
+			(at 80.01 53.3399 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2058,7 +1887,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 76.2 57.15 0)
+			(at 83.82 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2067,7 +1896,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 76.2 57.15 0)
+			(at 83.82 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2076,7 +1905,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 76.2 57.15 0)
+			(at 83.82 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2121,7 +1950,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+		(property "Footprint" ""
 			(at 59.69 71.628 90)
 			(effects
 				(font
@@ -2164,134 +1993,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 158.75 49.53 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "71c04176-622d-4762-b04c-42b60e251098")
-		(property "Reference" "H2"
-			(at 161.29 48.2599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "MountingHole"
-			(at 161.29 50.7999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
-			(at 158.75 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 158.75 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Mounting Hole without connection"
-			(at 158.75 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "RotaryEncoder"
-				(path "/4e64649f-140d-4c43-8072-32119b91f969"
-					(reference "H2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 158.75 54.61 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7708e631-a34d-4419-9971-dd579bc4635c")
-		(property "Reference" "H3"
-			(at 161.29 53.3399 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "MountingHole"
-			(at 161.29 55.8799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
-			(at 158.75 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 158.75 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Mounting Hole without connection"
-			(at 158.75 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "RotaryEncoder"
-				(path "/4e64649f-140d-4c43-8072-32119b91f969"
-					(reference "H3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 52.07 41.91 90)
 		(unit 1)
@@ -2317,7 +2018,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D3.8mm_W2.6mm_P2.50mm"
+		(property "Footprint" ""
 			(at 55.88 40.9448 0)
 			(effects
 				(font
@@ -2451,7 +2152,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D3.8mm_W2.6mm_P2.50mm"
+		(property "Footprint" ""
 			(at 55.88 68.8848 0)
 			(effects
 				(font
@@ -2494,344 +2195,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 116.84 57.15 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9d243230-6edb-4192-9355-4f3977d821d1")
-		(property "Reference" "#PWR011"
-			(at 123.19 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 120.65 57.1499 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 116.84 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 116.84 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 116.84 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f670a5d6-d0ab-4dc4-9beb-d6d0e8eceed3")
-		)
-		(instances
-			(project "RotaryEncoder"
-				(path "/4e64649f-140d-4c43-8072-32119b91f969"
-					(reference "#PWR011")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SamacSys_Parts:PEC11R-4325F-S0012")
-		(at 101.6 44.45 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a9c7bc70-4fd3-4615-946e-06762f190d99")
-		(property "Reference" "U1"
-			(at 104.7181 44.45 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "PEC11R-4325F-S0012"
-			(at 104.7181 46.99 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "SamacSys_Parts:PEC11R4325FS0012"
-			(at 14.3 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.bourns.com/docs/product-datasheets/pec11r.pdf"
-			(at -85.7 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Description" "Rotary Encoder Mechanical 12 Quadrature (Incremental) Vertical"
-			(at 101.6 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" "31.5"
-			(at -285.7 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "652-PEC11R4325FS0012"
-			(at -385.7 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Bourns/PEC11R-4325F-S0012?qs=Zq5ylnUbLm4xKJFZnkQTMQ%3D%3D"
-			(at -485.7 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "Bourns"
-			(at -585.7 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "PEC11R-4325F-S0012"
-			(at -685.7 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(pin "C1"
-			(uuid "1b0f525b-cad3-476a-ba88-94f838aac523")
-		)
-		(pin "2"
-			(uuid "44e56048-b99e-4f13-a0fb-7513ceedf271")
-		)
-		(pin "B1"
-			(uuid "fc55ff41-0346-4965-83e1-6da4d197a8fc")
-		)
-		(pin "A1"
-			(uuid "e6a6eb3d-c0ee-454b-8f05-8d459f80f17e")
-		)
-		(pin "3"
-			(uuid "503cbd28-c6be-495f-9ca7-542c6694bb5d")
-		)
-		(pin "4"
-			(uuid "9843780c-21b2-4734-8cf3-e75e98d94963")
-		)
-		(pin "1"
-			(uuid "52ebea16-cf19-48cf-9ded-fb5de5e48a24")
-		)
-		(instances
-			(project ""
-				(path "/4e64649f-140d-4c43-8072-32119b91f969"
-					(reference "U1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 158.75 44.45 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ac484094-b429-4845-ba53-87e76f511c08")
-		(property "Reference" "H1"
-			(at 161.29 43.1799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "MountingHole"
-			(at 161.29 45.7199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
-			(at 158.75 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 158.75 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Mounting Hole without connection"
-			(at 158.75 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project ""
-				(path "/4e64649f-140d-4c43-8072-32119b91f969"
-					(reference "H1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 142.24 66.04 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "af254051-8f95-44e1-a351-2f5a85f639e5")
-		(property "Reference" "C3"
-			(at 143.5101 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "0.01uF"
-			(at 140.9701 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D3.8mm_W2.6mm_P2.50mm"
-			(at 146.05 65.0748 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 142.24 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 142.24 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3fe85f6f-1d67-4468-9faa-60fd6be6a0bf")
-		)
-		(pin "2"
-			(uuid "b7488d9f-d010-4798-880c-a7bc84a16516")
-		)
-		(instances
-			(project "RotaryEncoder"
-				(path "/4e64649f-140d-4c43-8072-32119b91f969"
-					(reference "C3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 59.69 41.91 270)
 		(unit 1)
@@ -2857,7 +2220,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+		(property "Footprint" ""
 			(at 59.69 40.132 90)
 			(effects
 				(font
@@ -2925,7 +2288,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+		(property "Footprint" ""
 			(at 59.69 52.578 90)
 			(effects
 				(font
@@ -2969,15 +2332,16 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 135.89 54.61 90)
+		(at 104.14 41.91 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "d83f1026-985b-4ce9-aba7-262a73168c22")
 		(property "Reference" "R5"
-			(at 134.874 52.07 90)
+			(at 106.68 40.6399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2986,7 +2350,7 @@
 			)
 		)
 		(property "Value" "10K"
-			(at 134.6201 57.15 90)
+			(at 106.68 43.1799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2994,8 +2358,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
-			(at 135.89 56.388 90)
+		(property "Footprint" ""
+			(at 105.918 41.91 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3004,7 +2368,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 135.89 54.61 0)
+			(at 104.14 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3013,7 +2377,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 135.89 54.61 0)
+			(at 104.14 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3038,15 +2402,16 @@
 	)
 	(symbol
 		(lib_id "power:VCC")
-		(at 139.7 54.61 270)
+		(at 104.14 38.1 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "e6ed0583-d2bb-47dc-974e-00a4a35af047")
 		(property "Reference" "#PWR02"
-			(at 135.89 54.61 0)
+			(at 104.14 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3055,7 +2420,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 144.78 54.61 90)
+			(at 104.14 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3063,7 +2428,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 139.7 54.61 0)
+			(at 104.14 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3072,7 +2437,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 139.7 54.61 0)
+			(at 104.14 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3081,7 +2446,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 139.7 54.61 0)
+			(at 104.14 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3102,26 +2467,25 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 101.6 44.45 180)
+		(lib_id "Device:RotaryEncoder_Switch")
+		(at 91.44 53.34 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "e7c41465-96ad-4708-98d6-47c85438f80a")
-		(property "Reference" "#PWR08"
-			(at 101.6 38.1 0)
+		(uuid "e7a81d8e-b73c-4946-a267-a50aa279f20d")
+		(property "Reference" "SW1"
+			(at 91.44 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Value" "GND"
-			(at 101.6 39.37 0)
+		(property "Value" "RotaryEncoder_Switch"
+			(at 91.44 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3129,7 +2493,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 101.6 44.45 0)
+			(at 87.63 49.276 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3137,8 +2501,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 101.6 44.45 0)
+		(property "Datasheet" "~"
+			(at 91.44 46.736 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3146,8 +2510,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 101.6 44.45 0)
+		(property "Description" "Rotary encoder, dual channel, incremental quadrate outputs, with switch"
+			(at 91.44 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3155,13 +2519,25 @@
 				(hide yes)
 			)
 		)
-		(pin "1"
-			(uuid "4bf61cc1-c488-4550-8115-3541a25f9455")
+		(pin "B"
+			(uuid "72282c36-d4d0-4e61-bfc6-12f39662d4f1")
+		)
+		(pin "S1"
+			(uuid "f5acb650-d346-4270-b2d0-30fb0dc82e07")
+		)
+		(pin "A"
+			(uuid "edb55be0-d2e6-49b4-9923-0b2928e43b39")
+		)
+		(pin "S2"
+			(uuid "ba5d2c73-5d68-4cfa-bfaf-7c000746fa63")
+		)
+		(pin "C"
+			(uuid "f64943b9-5536-4bf4-aae3-59082adf4d00")
 		)
 		(instances
-			(project "RotaryEncoder"
+			(project ""
 				(path "/4e64649f-140d-4c43-8072-32119b91f969"
-					(reference "#PWR08")
+					(reference "SW1")
 					(unit 1)
 				)
 			)
@@ -3192,7 +2568,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+		(property "Footprint" ""
 			(at 59.69 61.468 90)
 			(effects
 				(font
