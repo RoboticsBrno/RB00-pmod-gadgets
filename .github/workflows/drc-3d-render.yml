@@ -1,18 +1,16 @@
-name: KiCad DRC and 3D export
+name: KiCad CI
 
 on:
   push:
     paths:
       - 'pmod/**'
-    paths-ignore:
-      - 'pmod/assets/**'
-      - 'pmod/template/**'
+      - '!pmod/assets/**'
+      - '!pmod/template/**'
   pull_request:
     paths:
       - 'pmod/**'
-    paths-ignore:
-      - 'pmod/assets/**'
-      - 'pmod/template/**'
+      - '!pmod/assets/**'
+      - '!pmod/template/**'
 
 jobs:
   kicad_checks:
