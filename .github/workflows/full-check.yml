@@ -1,0 +1,159 @@
+name: KiCad Full Repository Check
+
+on:
+  workflow_dispatch:
+    inputs:
+      force_all:
+        description: 'Run on all projects (ignore changes)'
+        required: false
+        default: false
+        type: boolean
+      generate_renders:
+        description: 'Generate 3D render images'
+        required: false
+        default: true
+        type: boolean
+
+jobs:
+  find-all-projects:
+    runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.find-projects.outputs.projects }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Find all KiCad projects
+        id: find-projects
+        run: |
+          echo "Finding all KiCad projects in repository..."
+          
+          # Find all KiCad projects, excluding blacklisted directories
+          PROJECTS=$(find pmod -name "*.kicad_pro" -path "*/KiCad/*" | sed 's|/KiCad/.*\.kicad_pro||' | sort -u)
+          
+          # Filter out blacklisted directories
+          FILTERED_PROJECTS=()
+          while IFS= read -r project; do
+            PROJECT_NAME=$(basename "$project")
+            if [[ "$PROJECT_NAME" != "assets" && "$PROJECT_NAME" != "template" ]]; then
+              FILTERED_PROJECTS+=("$project")
+            fi
+          done <<< "$PROJECTS"
+          
+          # Convert to JSON array
+          if [ ${#FILTERED_PROJECTS[@]} -gt 0 ]; then
+            JSON_ARRAY="["
+            for i in "${!FILTERED_PROJECTS[@]}"; do
+              if [ $i -gt 0 ]; then
+                JSON_ARRAY+=","
+              fi
+              JSON_ARRAY+="\"${FILTERED_PROJECTS[$i]}\""
+            done
+            JSON_ARRAY+="]"
+            echo "Found projects: $JSON_ARRAY"
+            echo "projects=$JSON_ARRAY" >> $GITHUB_OUTPUT
+          else
+            echo "No KiCad projects found"
+            echo 'projects=[]' >> $GITHUB_OUTPUT
+          fi
+
+  kicad-full-check:
+    needs: find-all-projects
+    if: needs.find-all-projects.outputs.projects != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: ${{ fromJson(needs.find-all-projects.outputs.projects) }}
+    name: KiCad Full Check - ${{ matrix.project }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Extract project name
+        id: project-info
+        run: |
+          PROJECT_NAME=$(basename "${{ matrix.project }}")
+          echo "project_name=$PROJECT_NAME" >> $GITHUB_OUTPUT
+          echo "Processing project: ${{ matrix.project }}"
+          echo "Project name: $PROJECT_NAME"
+          echo "Generate renders: ${{ github.event.inputs.generate_renders }}"
+          
+      - name: Find project file
+        id: project-file
+        run: |
+          KICAD_DIR="${{ matrix.project }}/KiCad"
+          if [ -d "$KICAD_DIR" ]; then
+            PROJECT_FILE=$(find "$KICAD_DIR" -name "*.kicad_pro" -exec basename {} .kicad_pro \; | head -1)
+            if [ -n "$PROJECT_FILE" ]; then
+              echo "project_file=$PROJECT_FILE" >> $GITHUB_OUTPUT
+              echo "kicad_dir=$KICAD_DIR" >> $GITHUB_OUTPUT
+              echo "Found KiCad project: $PROJECT_FILE"
+            else
+              echo "No KiCad project file found in $KICAD_DIR"
+              exit 1
+            fi
+          else
+            echo "KiCad directory not found: $KICAD_DIR"
+            exit 1
+          fi
+          
+      - name: Create assets directory
+        if: ${{ github.event.inputs.generate_renders == 'true' }}
+        run: |
+          mkdir -p "${{ matrix.project }}/assets"
+          echo "Created assets directory for ${{ matrix.project }}"
+          
+      - name: Run KiCad DRC
+        uses: sparkengineering/kicad-action@v4
+        with:
+          kicad_pcb: "${{ steps.project-file.outputs.kicad_dir }}/${{ steps.project-file.outputs.project_file }}.kicad_pcb"
+          pcb_drc: true
+        continue-on-error: true
+          
+      - name: Generate 3D render
+        if: ${{ github.event.inputs.generate_renders == 'true' }}
+        uses: sparkengineering/kicad-action@v4
+        with:
+          kicad_pcb: "${{ steps.project-file.outputs.kicad_dir }}/${{ steps.project-file.outputs.project_file }}.kicad_pcb"
+          pcb_image: true
+          pcb_image_path: "${{ matrix.project }}/assets/default.png"
+          
+      - name: Check if 3D render was created
+        if: ${{ github.event.inputs.generate_renders == 'true' }}
+        id: check-render
+        run: |
+          if [ -f "${{ matrix.project }}/assets/default.png" ]; then
+            echo "3D render successfully created"
+            echo "render_created=true" >> $GITHUB_OUTPUT
+          else
+            echo "3D render was not created"
+            echo "render_created=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Upload DRC report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: drc-report-${{ steps.project-info.outputs.project_name }}
+          path: ${{ steps.project-file.outputs.kicad_dir }}/drc.rpt
+          
+      - name: Upload 3D render
+        if: ${{ github.event.inputs.generate_renders == 'true' && steps.check-render.outputs.render_created == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: 3d-render-${{ steps.project-info.outputs.project_name }}
+          path: ${{ matrix.project }}/assets/default.png
+
+  summary:
+    needs: [find-all-projects, kicad-full-check]
+    if: always()
+    runs-on: ubuntu-latest
+    name: Summary
+    steps:
+      - name: Print summary
+        run: |
+          echo "=== KiCad Full Repository Check Complete ==="
+          echo "Total projects processed: ${{ fromJson(needs.find-all-projects.outputs.projects).length }}"
+          echo "Generate renders: ${{ github.event.inputs.generate_renders }}"
+          echo "All projects: ${{ needs.find-all-projects.outputs.projects }}"
+          echo "============================================"
