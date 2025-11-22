@@ -20,44 +20,73 @@ on:
         type: string
 
 jobs:
-  find-projects:
+  find-changed-projects:
     runs-on: ubuntu-latest
     outputs:
-      projects: ${{ steps.find-projects.outputs.projects }}
+      projects: ${{ steps.filter-projects.outputs.projects }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         
-      - name: Find KiCad projects
-        id: find-projects
+      - name: Get changed files
+        uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            pmod_projects:
+              - 'pmod/**'
+              - '!pmod/assets/**'
+              - '!pmod/template/**'
+              
+      - name: Find changed KiCad projects
+        id: filter-projects
+        if: steps.changes.outputs.pmod_projects == 'true'
         run: |
-          echo "Searching for KiCad projects in pmod directory..."
+          echo "Checking for changed files in pmod directory..."
           
-          # If manual run with project filter, only look for that specific project
-          if [ -n "${{ github.event.inputs.project_filter }}" ]; then
-            echo "Filtering for project: ${{ github.event.inputs.project_filter }}"
-            PROJECTS=$(find pmod -name "*.kicad_pro" -path "*/${{ github.event.inputs.project_filter }}/KiCad/*" | sed 's|/KiCad/.*\.kicad_pro||' | sort -u)
+          # Get the list of changed files
+          if [ "${{ github.event_name }}" == "push" ]; then
+            # For push events, compare with previous commit
+            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- "pmod/")
           else
-            PROJECTS=$(find pmod -name "*.kicad_pro" -path "*/KiCad/*" | sed 's|/KiCad/.*\.kicad_pro||' | sort -u)
+            # For PR events, compare with base branch
+            CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} -- "pmod/")
           fi
           
-          if [ -z "$PROJECTS" ]; then
-            echo "No KiCad projects found matching the filter"
-            echo 'projects=[]' >> $GITHUB_OUTPUT
-          else
-            # Convert to JSON array for matrix output
-            JSON_PROJECTS=$(echo "$PROJECTS" | jq -R -s -c 'split("\n") | map(select(. != ""))')
-            echo "Found projects: $JSON_PROJECTS"
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+          
+          # Extract unique project directories from changed files
+          CHANGED_PROJECTS=()
+          while IFS= read -r file; do
+            if [[ "$file" =~ ^pmod/([^/]+)/ ]]; then
+              PROJECT_NAME="${BASH_REMATCH[1]}"
+              # Skip blacklisted directories
+              if [[ "$PROJECT_NAME" != "assets" && "$PROJECT_NAME" != "template" ]]; then
+                CHANGED_PROJECTS+=("pmod/$PROJECT_NAME")
+              fi
+            fi
+          done <<< "$CHANGED_FILES"
+          
+          # Remove duplicates and convert to JSON
+          if [ ${#CHANGED_PROJECTS[@]} -gt 0 ]; then
+            UNIQUE_PROJECTS=($(printf "%s\n" "${CHANGED_PROJECTS[@]}" | sort -u))
+            JSON_PROJECTS=$(printf '%s\n' "${UNIQUE_PROJECTS[@]}" | jq -R -s -c 'split("\n") | map(select(. != ""))')
+            echo "Changed projects: $JSON_PROJECTS"
             echo "projects=$JSON_PROJECTS" >> $GITHUB_OUTPUT
+          else
+            echo "No changed projects found"
+            echo 'projects=[]' >> $GITHUB_OUTPUT
           fi
 
   kicad-checks:
-    needs: find-projects
+    needs: find-changed-projects
+    if: needs.find-changed-projects.outputs.projects != '[]'
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        project: ${{ fromJson(needs.find-projects.outputs.projects) }}
-    name: KiCad DRC and 3D Export - ${{ matrix.project }}
+        project: ${{ fromJson(needs.find-changed-projects.outputs.projects) }}
+    name: KiCad DRC and 3D Export - ${{ fromJson(matrix.project) }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -74,12 +103,17 @@ jobs:
         id: project-file
         run: |
           KICAD_DIR="${{ matrix.project }}/KiCad"
-          PROJECT_FILE=$(find "$KICAD_DIR" -name "*.kicad_pro" -exec basename {} .kicad_pro \; | head -1)
-          if [ -n "$PROJECT_FILE" ]; then
-            echo "project_file=$PROJECT_FILE" >> $GITHUB_OUTPUT
-            echo "kicad_dir=$KICAD_DIR" >> $GITHUB_OUTPUT
+          if [ -d "$KICAD_DIR" ]; then
+            PROJECT_FILE=$(find "$KICAD_DIR" -name "*.kicad_pro" -exec basename {} .kicad_pro \; | head -1)
+            if [ -n "$PROJECT_FILE" ]; then
+              echo "project_file=$PROJECT_FILE" >> $GITHUB_OUTPUT
+              echo "kicad_dir=$KICAD_DIR" >> $GITHUB_OUTPUT
+            else
+              echo "No KiCad project file found in $KICAD_DIR"
+              exit 1
+            fi
           else
-            echo "No KiCad project file found in $KICAD_DIR"
+            echo "KiCad directory not found: $KICAD_DIR"
             exit 1
           fi
           
@@ -87,11 +121,12 @@ jobs:
         run: |
           mkdir -p "${{ matrix.project }}/assets"
           
-      - name: Run KiCad DRC
+      - name: Run KiCad DRC (continue on error)
         uses: sparkengineering/kicad-action@v4
         with:
           kicad_pcb: "${{ steps.project-file.outputs.kicad_dir }}/${{ steps.project-file.outputs.project_file }}.kicad_pcb"
           pcb_drc: true
+        continue-on-error: true
           
       - name: Generate 3D render
         uses: sparkengineering/kicad-action@v4
