@@ -1,0 +1,31 @@
+name: KiCad DRC and 3D export
+
+on:
+  push:
+    paths:
+      - 'pmod/**'
+    paths-ignore:
+      - 'pmod/assets/**'
+      - 'pmod/template/**'
+  pull_request:
+    paths:
+      - 'pmod/**'
+    paths-ignore:
+      - 'pmod/assets/**'
+      - 'pmod/template/**'
+
+jobs:
+  kicad_checks:
+    runs-on: ubuntu-latest
+    name: KiCad DRC and 3D Export
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Find KiCad projects
+        id: find_projects
+        run: |
+          echo "Searching for KiCad projects in pmod directory..."
+          PROJECTS=$(find pmod -name "*.kicad_pro" -path "*/KiCad/*" | sed 's|/KiCad/.*\.kicad_pro||' | sort -u)
+          echo "Found projects: $PROJECTS"
+          echo "projects=$PROJECTS" >> $GITHUB_OUTPUT
