@@ -56,8 +56,10 @@ jobs:
               PROJECTS=$(echo "$PROJECTS" | grep "${{ github.event.inputs.project_filter }}" || true)
             fi
             if [ -n "$PROJECTS" ]; then
+              # Convert to proper JSON array
               JSON_PROJECTS=$(echo "$PROJECTS" | jq -R -s -c 'split("\n") | map(select(. != ""))')
               echo "projects=$JSON_PROJECTS" >> $GITHUB_OUTPUT
+              echo "Manual projects: $JSON_PROJECTS"
             else
               echo 'projects=[]' >> $GITHUB_OUTPUT
             fi
@@ -89,9 +91,17 @@ jobs:
           # Remove duplicates and convert to JSON
           if [ ${#CHANGED_PROJECTS[@]} -gt 0 ]; then
             UNIQUE_PROJECTS=($(printf "%s\n" "${CHANGED_PROJECTS[@]}" | sort -u))
-            JSON_PROJECTS=$(printf '%s\n' "${UNIQUE_PROJECTS[@]}" | jq -R -s -c 'split("\n") | map(select(. != ""))')
-            echo "Changed projects: $JSON_PROJECTS"
-            echo "projects=$JSON_PROJECTS" >> $GITHUB_OUTPUT
+            # Create proper JSON array
+            JSON_ARRAY="["
+            for i in "${!UNIQUE_PROJECTS[@]}"; do
+              if [ $i -gt 0 ]; then
+                JSON_ARRAY+=","
+              fi
+              JSON_ARRAY+="\"${UNIQUE_PROJECTS[$i]}\""
+            done
+            JSON_ARRAY+="]"
+            echo "Changed projects: $JSON_ARRAY"
+            echo "projects=$JSON_ARRAY" >> $GITHUB_OUTPUT
           else
             echo "No changed projects found"
             echo 'projects=[]' >> $GITHUB_OUTPUT
@@ -104,7 +114,7 @@ jobs:
     strategy:
       matrix:
         project: ${{ fromJson(needs.find-changed-projects.outputs.projects) }}
-    name: KiCad DRC and 3D Export - ${{ fromJson(matrix.project) }}
+    name: KiCad DRC and 3D Export - ${{ matrix.project }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
