@@ -87,13 +87,18 @@ jobs:
         run: |
           mkdir -p "${{ matrix.project }}/assets"
           
-      - name: Run KiCad DRC and 3D render
+      - name: Run KiCad DRC
         uses: sparkengineering/kicad-action@v4
         with:
           kicad_pcb: "${{ steps.project-file.outputs.kicad_dir }}/${{ steps.project-file.outputs.project_file }}.kicad_pcb"
           pcb_drc: true
-          pcb_3d: true
-          pcb_3d_output: "${{ matrix.project }}/assets/default.png"
+          
+      - name: Generate 3D render
+        uses: sparkengineering/kicad-action@v4
+        with:
+          kicad_pcb: "${{ steps.project-file.outputs.kicad_dir }}/${{ steps.project-file.outputs.project_file }}.kicad_pcb"
+          pcb_image: true
+          pcb_image_path: "${{ matrix.project }}/assets/default.png"
           
       - name: Upload DRC report if failed
         uses: actions/upload-artifact@v4
