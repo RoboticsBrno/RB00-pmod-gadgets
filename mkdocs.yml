@@ -110,6 +110,9 @@ nav:
   - DPad:
       - DPad/README.md
       - DPad/manual.md
+  - Senzor teploty:
+      - Temperature/README.md
+      - Temperature/manual.md
   # - Template:
   #     - template/README.md
   #     - template/manual.md
