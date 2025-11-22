@@ -47,3 +47,81 @@ jobs:
             echo "Found projects: $PROJECTS"
             echo "projects=$PROJECTS" >> $GITHUB_OUTPUT
           fi
+
+      - name: Process each KiCad project
+        run: |
+          # Check if any projects were found
+          if [ -z "${{ steps.find_projects.outputs.projects }}" ]; then
+            echo "No KiCad projects found to process"
+            exit 0
+          fi
+          
+          for PROJECT_PATH in ${{ steps.find_projects.outputs.projects }}; do
+            echo "Processing project: $PROJECT_PATH"
+            PROJECT_NAME=$(basename "$PROJECT_PATH")
+            KICAD_DIR="$PROJECT_PATH/KiCad"
+            ASSETS_DIR="$PROJECT_PATH/assets"
+            
+            # Find the main project file (without .kicad_pro extension)
+            PROJECT_FILE=$(find "$KICAD_DIR" -name "*.kicad_pro" -exec basename {} .kicad_pro \; | head -1)
+            
+            if [ -n "$PROJECT_FILE" ]; then
+              echo "Found KiCad project: $PROJECT_FILE"
+              
+              # Change to the KiCad directory for processing
+              cd "$KICAD_DIR"
+              
+              # Run DRC
+              echo "Running DRC for $PROJECT_FILE..."
+              pcb_drc_result=0
+              /usr/bin/docker run --rm -v "$PWD:/workspace" sparkengineering/kicad-action:latest \
+                --kicad_pcb "$PROJECT_FILE.kicad_pcb" --pcb_drc || pcb_drc_result=$?
+              
+              # Generate 3D render
+              echo "Generating 3D render for $PROJECT_FILE..."
+              pcb_3d_result=0
+              /usr/bin/docker run --rm -v "$PWD:/workspace" sparkengineering/kicad-action:latest \
+                --kicad_pcb "$PROJECT_FILE.kicad_pcb" --pcb_3d --pcb_3d_output "temp_3d.png" || pcb_3d_result=$?
+              
+              # Create assets directory and move 3D render
+              if [ $pcb_3d_result -eq 0 ] && [ -f "temp_3d.png" ]; then
+                echo "Moving 3D render to assets directory..."
+                mkdir -p "../../assets"
+                mv "temp_3d.png" "../../assets/default.png"
+                echo "3D render saved to $PROJECT_PATH/assets/default.png"
+              fi
+              
+              # Go back to workspace root
+              cd "$GITHUB_WORKSPACE"
+              
+              # Upload artifacts for this project
+              if [ $pcb_drc_result -ne 0 ] && [ -f "$KICAD_DIR/drc.rpt" ]; then
+                echo "Uploading DRC report for $PROJECT_NAME"
+                cp "$KICAD_DIR/drc.rpt" "drc_${PROJECT_NAME}.rpt"
+              fi
+              
+              if [ -f "$PROJECT_PATH/assets/default.png" ]; then
+                echo "Uploading 3D render for $PROJECT_NAME"
+                cp "$PROJECT_PATH/assets/default.png" "render_${PROJECT_NAME}.png"
+              fi
+              
+            else
+              echo "No KiCad project file found in $KICAD_DIR"
+            fi
+          done
+
+      # Upload DRC reports only if DRC failed
+      - name: Upload DRC reports
+        uses: actions/upload-artifact@v4
+        if: ${{ failure() }}
+        with:
+          name: drc-reports
+          path: drc_*.rpt
+
+      # Upload 3D renders if generation succeeded
+      - name: Upload 3D renders
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: 3d-renders
+          path: render_*.png
