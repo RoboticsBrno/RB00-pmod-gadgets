@@ -11,6 +11,13 @@ on:
       - 'pmod/**'
       - '!pmod/assets/**'
       - '!pmod/template/**'
+  workflow_dispatch:
+    inputs:
+      project_filter:
+        description: 'Filter by specific project (optional)'
+        required: false
+        default: ''
+        type: string
 
 jobs:
   kicad_checks:
@@ -24,6 +31,19 @@ jobs:
         id: find_projects
         run: |
           echo "Searching for KiCad projects in pmod directory..."
-          PROJECTS=$(find pmod -name "*.kicad_pro" -path "*/KiCad/*" | sed 's|/KiCad/.*\.kicad_pro||' | sort -u)
-          echo "Found projects: $PROJECTS"
-          echo "projects=$PROJECTS" >> $GITHUB_OUTPUT
+          
+          # If manual run with project filter, only look for that specific project
+          if [ -n "${{ github.event.inputs.project_filter }}" ]; then
+            echo "Filtering for project: ${{ github.event.inputs.project_filter }}"
+            PROJECTS=$(find pmod -name "*.kicad_pro" -path "*/${{ github.event.inputs.project_filter }}/KiCad/*" | sed 's|/KiCad/.*\.kicad_pro||' | sort -u)
+          else
+            PROJECTS=$(find pmod -name "*.kicad_pro" -path "*/KiCad/*" | sed 's|/KiCad/.*\.kicad_pro||' | sort -u)
+          fi
+          
+          if [ -z "$PROJECTS" ]; then
+            echo "No KiCad projects found matching the filter"
+            echo "projects=" >> $GITHUB_OUTPUT
+          else
+            echo "Found projects: $PROJECTS"
+            echo "projects=$PROJECTS" >> $GITHUB_OUTPUT
+          fi
