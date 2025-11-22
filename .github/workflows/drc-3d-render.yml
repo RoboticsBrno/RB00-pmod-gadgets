@@ -27,34 +27,52 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
-      - name: Get changed files
-        uses: dorny/paths-filter@v2
-        id: changes
         with:
-          filters: |
-            pmod_projects:
-              - 'pmod/**'
-              - '!pmod/assets/**'
-              - '!pmod/template/**'
-              
+          fetch-depth: 0  # Fetch all history for proper diffing
+          
       - name: Find changed KiCad projects
         id: filter-projects
-        if: steps.changes.outputs.pmod_projects == 'true'
         run: |
           echo "Checking for changed files in pmod directory..."
           
           # Get the list of changed files
           if [ "${{ github.event_name }}" == "push" ]; then
             # For push events, compare with previous commit
-            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- "pmod/")
-          else
+            if [ -n "${{ github.event.before }}" ]; then
+              CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- "pmod/")
+            else
+              # For initial push or force push, get all files
+              CHANGED_FILES=$(git log -1 --name-only --oneline ${{ github.sha }} -- "pmod/")
+            fi
+          elif [ "${{ github.event_name }}" == "pull_request" ]; then
             # For PR events, compare with base branch
             CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} -- "pmod/")
+          else
+            # For workflow_dispatch or other events, process all projects
+            echo "Manual trigger - processing all projects"
+            PROJECTS=$(find pmod -name "*.kicad_pro" -path "*/KiCad/*" | sed 's|/KiCad/.*\.kicad_pro||' | sort -u)
+            if [ -n "${{ github.event.inputs.project_filter }}" ]; then
+              echo "Filtering for project: ${{ github.event.inputs.project_filter }}"
+              PROJECTS=$(echo "$PROJECTS" | grep "${{ github.event.inputs.project_filter }}" || true)
+            fi
+            if [ -n "$PROJECTS" ]; then
+              JSON_PROJECTS=$(echo "$PROJECTS" | jq -R -s -c 'split("\n") | map(select(. != ""))')
+              echo "projects=$JSON_PROJECTS" >> $GITHUB_OUTPUT
+            else
+              echo 'projects=[]' >> $GITHUB_OUTPUT
+            fi
+            exit 0
           fi
           
           echo "Changed files:"
           echo "$CHANGED_FILES"
+          
+          # If no changed files found, exit early
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No changed files found in pmod directory"
+            echo 'projects=[]' >> $GITHUB_OUTPUT
+            exit 0
+          fi
           
           # Extract unique project directories from changed files
           CHANGED_PROJECTS=()
