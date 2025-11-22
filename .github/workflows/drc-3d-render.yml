@@ -20,15 +20,16 @@ on:
         type: string
 
 jobs:
-  kicad_checks:
+  find-projects:
     runs-on: ubuntu-latest
-    name: KiCad DRC and 3D Export
+    outputs:
+      projects: ${{ steps.find-projects.outputs.projects }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+        
       - name: Find KiCad projects
-        id: find_projects
+        id: find-projects
         run: |
           echo "Searching for KiCad projects in pmod directory..."
           
@@ -42,86 +43,68 @@ jobs:
           
           if [ -z "$PROJECTS" ]; then
             echo "No KiCad projects found matching the filter"
-            echo "projects=" >> $GITHUB_OUTPUT
+            echo 'projects=[]' >> $GITHUB_OUTPUT
           else
-            echo "Found projects: $PROJECTS"
-            echo "projects=$PROJECTS" >> $GITHUB_OUTPUT
+            # Convert to JSON array for matrix output
+            JSON_PROJECTS=$(echo "$PROJECTS" | jq -R -s -c 'split("\n") | map(select(. != ""))')
+            echo "Found projects: $JSON_PROJECTS"
+            echo "projects=$JSON_PROJECTS" >> $GITHUB_OUTPUT
           fi
 
-      - name: Process each KiCad project
+  kicad-checks:
+    needs: find-projects
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: ${{ fromJson(needs.find-projects.outputs.projects) }}
+    name: KiCad DRC and 3D Export - ${{ matrix.project }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Extract project name
+        id: project-info
         run: |
-          # Check if any projects were found
-          if [ -z "${{ steps.find_projects.outputs.projects }}" ]; then
-            echo "No KiCad projects found to process"
-            exit 0
+          PROJECT_NAME=$(basename "${{ matrix.project }}")
+          echo "project_name=$PROJECT_NAME" >> $GITHUB_OUTPUT
+          echo "Processing project: ${{ matrix.project }}"
+          echo "Project name: $PROJECT_NAME"
+          
+      - name: Find project file
+        id: project-file
+        run: |
+          KICAD_DIR="${{ matrix.project }}/KiCad"
+          PROJECT_FILE=$(find "$KICAD_DIR" -name "*.kicad_pro" -exec basename {} .kicad_pro \; | head -1)
+          if [ -n "$PROJECT_FILE" ]; then
+            echo "project_file=$PROJECT_FILE" >> $GITHUB_OUTPUT
+            echo "kicad_dir=$KICAD_DIR" >> $GITHUB_OUTPUT
+          else
+            echo "No KiCad project file found in $KICAD_DIR"
+            exit 1
           fi
           
-          for PROJECT_PATH in ${{ steps.find_projects.outputs.projects }}; do
-            echo "Processing project: $PROJECT_PATH"
-            PROJECT_NAME=$(basename "$PROJECT_PATH")
-            KICAD_DIR="$PROJECT_PATH/KiCad"
-            ASSETS_DIR="$PROJECT_PATH/assets"
-            
-            # Find the main project file (without .kicad_pro extension)
-            PROJECT_FILE=$(find "$KICAD_DIR" -name "*.kicad_pro" -exec basename {} .kicad_pro \; | head -1)
-            
-            if [ -n "$PROJECT_FILE" ]; then
-              echo "Found KiCad project: $PROJECT_FILE"
-              
-              # Change to the KiCad directory for processing
-              cd "$KICAD_DIR"
-              
-              # Run DRC
-              echo "Running DRC for $PROJECT_FILE..."
-              pcb_drc_result=0
-              /usr/bin/docker run --rm -v "$PWD:/workspace" sparkengineering/kicad-action:latest \
-                --kicad_pcb "$PROJECT_FILE.kicad_pcb" --pcb_drc || pcb_drc_result=$?
-              
-              # Generate 3D render
-              echo "Generating 3D render for $PROJECT_FILE..."
-              pcb_3d_result=0
-              /usr/bin/docker run --rm -v "$PWD:/workspace" sparkengineering/kicad-action:latest \
-                --kicad_pcb "$PROJECT_FILE.kicad_pcb" --pcb_3d --pcb_3d_output "temp_3d.png" || pcb_3d_result=$?
-              
-              # Create assets directory and move 3D render
-              if [ $pcb_3d_result -eq 0 ] && [ -f "temp_3d.png" ]; then
-                echo "Moving 3D render to assets directory..."
-                mkdir -p "../../assets"
-                mv "temp_3d.png" "../../assets/default.png"
-                echo "3D render saved to $PROJECT_PATH/assets/default.png"
-              fi
-              
-              # Go back to workspace root
-              cd "$GITHUB_WORKSPACE"
-              
-              # Upload artifacts for this project
-              if [ $pcb_drc_result -ne 0 ] && [ -f "$KICAD_DIR/drc.rpt" ]; then
-                echo "Uploading DRC report for $PROJECT_NAME"
-                cp "$KICAD_DIR/drc.rpt" "drc_${PROJECT_NAME}.rpt"
-              fi
-              
-              if [ -f "$PROJECT_PATH/assets/default.png" ]; then
-                echo "Uploading 3D render for $PROJECT_NAME"
-                cp "$PROJECT_PATH/assets/default.png" "render_${PROJECT_NAME}.png"
-              fi
-              
-            else
-              echo "No KiCad project file found in $KICAD_DIR"
-            fi
-          done
-
-      # Upload DRC reports only if DRC failed
-      - name: Upload DRC reports
+      - name: Create assets directory
+        run: |
+          mkdir -p "${{ matrix.project }}/assets"
+          
+      - name: Run KiCad DRC and 3D render
+        uses: sparkengineering/kicad-action@v4
+        with:
+          kicad_pcb: "${{ steps.project-file.outputs.kicad_dir }}/${{ steps.project-file.outputs.project_file }}.kicad_pcb"
+          pcb_drc: true
+          pcb_3d: true
+          pcb_3d_output: "${{ matrix.project }}/assets/default.png"
+          
+      - name: Upload DRC report if failed
         uses: actions/upload-artifact@v4
         if: ${{ failure() }}
         with:
-          name: drc-reports
-          path: drc_*.rpt
-
-      # Upload 3D renders if generation succeeded
-      - name: Upload 3D renders
+          name: drc-report-${{ steps.project-info.outputs.project_name }}
+          path: ${{ steps.project-file.outputs.kicad_dir }}/drc.rpt
+          
+      - name: Upload 3D render
         uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
-          name: 3d-renders
-          path: render_*.png
+          name: 3d-render-${{ steps.project-info.outputs.project_name }}
+          path: ${{ matrix.project }}/assets/default.png
