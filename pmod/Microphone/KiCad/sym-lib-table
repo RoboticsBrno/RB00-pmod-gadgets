@@ -1,5 +1,4 @@
 (sym_lib_table
   (version 7)
   (lib (name "CMEJ-9745-37-P")(type "KiCad")(uri "${KIPRJMOD}/components/CMEJ-9745-37-P/CMEJ-9745-37-P.kicad_sym")(options "")(descr ""))
-  (lib (name "MAX4466EXK+T")(type "KiCad")(uri "${KIPRJMOD}/components/MAX4466/MAX4466EXK+T.kicad_sym")(options "")(descr ""))
 )
