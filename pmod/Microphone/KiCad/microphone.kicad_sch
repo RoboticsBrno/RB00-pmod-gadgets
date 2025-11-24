@@ -5,6 +5,184 @@
 	(uuid "2a9bcfd4-adab-4e02-ac26-fb85a4426adb")
 	(paper "A4")
 	(lib_symbols
+		(symbol "Amplifier_Operational:LMV321"
+			(pin_names
+				(offset 0.127)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "LMV321"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lmv324.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Low-Voltage Rail-to-Rail Output Operational Amplifiers, SOT-23-5/SC-70-5"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "single opamp"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "SOT?23* *SC*70*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "LMV321_0_1"
+				(polyline
+					(pts
+						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -7.62 90)
+					(length 3.81)
+					(name "V-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 7.62 270)
+					(length 3.81)
+					(name "V+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "LMV321_1_1"
+				(pin input line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "CMEJ-9745-37-P:CMEJ-9745-37-P"
 			(pin_names
 				(offset 1.016)
@@ -919,231 +1097,6 @@
 				)
 			)
 		)
-		(symbol "MAX4466EXK+T:MAX4466EXK+T"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "IC"
-				(at 21.59 7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Value" "MAX4466EXK+T"
-				(at 21.59 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "SOT65P210X110-5N"
-				(at 21.59 -94.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://www.analog.com/MAX4466/datasheet"
-				(at 21.59 -194.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Description" "Low-Cost, Micropower, SC70/SOT23-8, Microphone Preamplifiers with Complete Shutdown"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Height" "1.1"
-				(at 21.59 -394.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Name" "Analog Devices"
-				(at 21.59 -494.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Part_Number" "MAX4466EXK+T"
-				(at 21.59 -594.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Part Number" "700-MAX4466EXKT"
-				(at 21.59 -694.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Analog-Devices-Maxim-Integrated/MAX4466EXK%2bT?qs=1eQvB6Dk1viIfH6l6v5sWg%3D%3D"
-				(at 21.59 -794.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Arrow Part Number" "MAX4466EXK+T"
-				(at 21.59 -894.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Arrow Price/Stock" "https://www.arrow.com/en/products/max4466exkt/analog-devices?utm_currency=USD&region=nac"
-				(at 21.59 -994.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(symbol "MAX4466EXK+T_1_1"
-				(rectangle
-					(start 5.08 2.54)
-					(end 20.32 -7.62)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "IN+"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -5.08 0)
-					(length 5.08)
-					(name "IN-"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 0 180)
-					(length 5.08)
-					(name "OUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 -2.54 180)
-					(length 5.08)
-					(name "VCC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "Mechanical:MountingHole"
 			(pin_names
 				(offset 1.016)
@@ -1468,16 +1421,10 @@
 		(uuid "9186111f-1e51-497f-bccc-88f3ca34f294")
 	)
 	(junction
-		(at 209.55 74.93)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ac52b6bb-c949-4f25-bbc3-571583547f36")
-	)
-	(junction
 		(at 217.17 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "b1397afe-3770-4007-bda4-6b1a4eece4ec")
+		(uuid "972fb6c2-39a2-4996-8586-fc3d500453c0")
 	)
 	(junction
 		(at 149.86 93.98)
@@ -1491,9 +1438,25 @@
 		(color 0 0 0 0)
 		(uuid "cb803383-2bbe-4af0-a16d-71014ab4e8b3")
 	)
+	(junction
+		(at 209.55 77.47)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f1167d2c-f4c4-457d-9160-dae49e3b4a2d")
+	)
 	(no_connect
 		(at 220.98 93.98)
 		(uuid "a7a03d35-8fa9-4676-95fd-7f41dc7a6480")
+	)
+	(wire
+		(pts
+			(xy 182.88 67.31) (xy 182.88 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "011a9280-b396-4b18-9d8d-2c971a5b7c77")
 	)
 	(wire
 		(pts
@@ -1504,16 +1467,6 @@
 			(type default)
 		)
 		(uuid "058be5b7-f13a-4ddc-a973-83ad09eec3b6")
-	)
-	(wire
-		(pts
-			(xy 163.83 77.47) (xy 171.45 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "07d27401-342f-4b57-8636-08da4db13a16")
 	)
 	(wire
 		(pts
@@ -1567,23 +1520,13 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 77.47) (xy 163.83 80.01)
+			(xy 209.55 77.47) (xy 217.17 77.47)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "168f696a-7216-4c87-8f87-f5c76e5bc341")
-	)
-	(wire
-		(pts
-			(xy 196.85 74.93) (xy 209.55 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "19192933-02c0-47db-bf71-2fc8f51751e4")
+		(uuid "198cdde2-6a30-4186-b27f-3b52bede8bbb")
 	)
 	(wire
 		(pts
@@ -1627,7 +1570,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 74.93) (xy 171.45 74.93)
+			(xy 149.86 74.93) (xy 177.8 74.93)
 		)
 		(stroke
 			(width 0)
@@ -1647,23 +1590,33 @@
 	)
 	(wire
 		(pts
-			(xy 204.47 77.47) (xy 204.47 69.85)
+			(xy 217.17 77.47) (xy 217.17 87.63)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4a2f54cc-f323-42c0-82c7-d94b5c505b56")
+		(uuid "4cfbdf91-0ad8-457c-9a32-f9fd478b31d1")
 	)
 	(wire
 		(pts
-			(xy 171.45 80.01) (xy 170.18 80.01)
+			(xy 170.18 80.01) (xy 177.8 80.01)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "4d375805-adba-4c15-8a35-3a0d3f26ec15")
+	)
+	(wire
+		(pts
+			(xy 193.04 77.47) (xy 209.55 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60c0036c-9d11-43f0-9cef-1c8acf799233")
 	)
 	(wire
 		(pts
@@ -1694,16 +1647,6 @@
 			(type default)
 		)
 		(uuid "6cf5011c-2898-4eb9-b512-006ce7e62455")
-	)
-	(wire
-		(pts
-			(xy 217.17 74.93) (xy 217.17 87.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "779c199e-5e96-466e-8b94-9572c2ef305e")
 	)
 	(wire
 		(pts
@@ -1757,13 +1700,13 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 74.93) (xy 209.55 81.28)
+			(xy 182.88 85.09) (xy 182.88 87.63)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "96d63769-5438-4637-ad85-e625a7443245")
+		(uuid "a2be7d83-94af-4536-b7a5-1d11654f2cb9")
 	)
 	(wire
 		(pts
@@ -1794,16 +1737,6 @@
 			(type default)
 		)
 		(uuid "a915b00e-2e29-463c-9c1c-e5df3ec670ca")
-	)
-	(wire
-		(pts
-			(xy 196.85 77.47) (xy 204.47 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ad017e76-677f-4f46-9daf-613debf4eaa5")
 	)
 	(wire
 		(pts
@@ -1847,13 +1780,13 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 74.93) (xy 217.17 74.93)
+			(xy 209.55 77.47) (xy 209.55 81.28)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "befc9aef-d119-4216-95b3-64699b4c46bc")
+		(uuid "c29c0ab3-5844-4693-85fa-5751c211a424")
 	)
 	(wire
 		(pts
@@ -1914,72 +1847,6 @@
 			(type default)
 		)
 		(uuid "e612f0c9-6ece-4bc6-85cb-79f92c663040")
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 163.83 80.01 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2a212f52-cc52-400d-90c1-893c228c2484")
-		(property "Reference" "#PWR7"
-			(at 163.83 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 163.83 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 163.83 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 163.83 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 163.83 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f1e44e26-6ca6-498c-a335-51c13fe72615")
-		)
-		(instances
-			(project ""
-				(path "/2a9bcfd4-adab-4e02-ac26-fb85a4426adb"
-					(reference "#PWR7")
-					(unit 1)
-				)
-			)
-		)
 	)
 	(symbol
 		(lib_id "power:+3V3")
@@ -2230,7 +2097,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 204.47 69.85 0)
+		(at 182.88 67.31 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2239,7 +2106,7 @@
 		(fields_autoplaced yes)
 		(uuid "6034e04b-0747-452e-8e39-5e507a5fd8f7")
 		(property "Reference" "#PWR6"
-			(at 204.47 73.66 0)
+			(at 182.88 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2248,7 +2115,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 204.47 64.77 0)
+			(at 182.88 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2256,7 +2123,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 204.47 69.85 0)
+			(at 182.88 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2265,7 +2132,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 204.47 69.85 0)
+			(at 182.88 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2274,7 +2141,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 204.47 69.85 0)
+			(at 182.88 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2915,6 +2782,72 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 182.88 87.63 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bfd0fbe3-ae0a-4e64-b907-8e54a38e72ba")
+		(property "Reference" "#PWR7"
+			(at 182.88 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 182.88 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 182.88 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 182.88 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 182.88 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a851209d-9695-461d-a6c1-76b87be42286")
+		)
+		(instances
+			(project ""
+				(path "/2a9bcfd4-adab-4e02-ac26-fb85a4426adb"
+					(reference "#PWR7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 240.03 80.01 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3182,6 +3115,84 @@
 		)
 	)
 	(symbol
+		(lib_id "Amplifier_Operational:LMV321")
+		(at 185.42 77.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e0a98ca0-823c-4201-b0bf-0da5f41b3105")
+		(property "Reference" "U1"
+			(at 195.58 71.1514 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LMV321"
+			(at 195.58 73.6914 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+			(at 185.42 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lmv324.pdf"
+			(at 185.42 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Low-Voltage Rail-to-Rail Output Operational Amplifiers, SOT-23-5/SC-70-5"
+			(at 185.42 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "49e20d90-3a74-4bd8-a659-0feddbbd8973")
+		)
+		(pin "2"
+			(uuid "1c642c6b-566b-44ff-8b88-b43dba05b741")
+		)
+		(pin "4"
+			(uuid "e0c4f959-1b4f-4320-ae27-2cf2c6646ae3")
+		)
+		(pin "1"
+			(uuid "f5d267e4-5656-410f-923b-1aabac8fb839")
+		)
+		(pin "5"
+			(uuid "6d7aa917-405e-4fb8-a848-d0c2ad12922c")
+		)
+		(instances
+			(project ""
+				(path "/2a9bcfd4-adab-4e02-ac26-fb85a4426adb"
+					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 209.55 85.09 0)
 		(unit 1)
@@ -3386,154 +3397,6 @@
 			(project ""
 				(path "/2a9bcfd4-adab-4e02-ac26-fb85a4426adb"
 					(reference "C4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "MAX4466EXK+T:MAX4466EXK+T")
-		(at 171.45 74.93 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f2cb7a79-283d-4ac4-bbb7-fbf74eaf5d98")
-		(property "Reference" "IC1"
-			(at 184.15 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "MAX4466EXK+T"
-			(at 184.15 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "SOT65P210X110-5N"
-			(at 193.04 169.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.analog.com/MAX4466/datasheet"
-			(at 193.04 269.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Description" "Low-Cost, Micropower, SC70/SOT23-8, Microphone Preamplifiers with Complete Shutdown"
-			(at 171.45 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" "1.1"
-			(at 193.04 469.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "Analog Devices"
-			(at 193.04 569.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "MAX4466EXK+T"
-			(at 193.04 669.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "700-MAX4466EXKT"
-			(at 193.04 769.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Analog-Devices-Maxim-Integrated/MAX4466EXK%2bT?qs=1eQvB6Dk1viIfH6l6v5sWg%3D%3D"
-			(at 193.04 869.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "MAX4466EXK+T"
-			(at 193.04 969.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/max4466exkt/analog-devices?utm_currency=USD&region=nac"
-			(at 193.04 1069.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "d32d6502-1a95-42b4-9d2c-2553dbfced66")
-		)
-		(pin "5"
-			(uuid "f8fc74e9-ab7d-4095-9592-f838487e6b80")
-		)
-		(pin "1"
-			(uuid "ce952f34-8cb8-488f-9107-7089e1aad295")
-		)
-		(pin "2"
-			(uuid "38ceb1cd-cf97-43a6-a77e-6eb6a195fcf9")
-		)
-		(pin "4"
-			(uuid "238dd23e-ccf4-4b1f-be8a-bb79658a10ff")
-		)
-		(instances
-			(project ""
-				(path "/2a9bcfd4-adab-4e02-ac26-fb85a4426adb"
-					(reference "IC1")
 					(unit 1)
 				)
 			)
