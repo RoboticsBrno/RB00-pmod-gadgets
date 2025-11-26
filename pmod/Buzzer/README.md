@@ -7,4 +7,4 @@ Je potřeba 1 pin
 
 ![Schema](assets/sch.png)
 ![PCB](assets/pcb.png)
-![3D PCB](assets/model.png)
+![3D PCB](assets/default.png)
