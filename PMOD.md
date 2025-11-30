@@ -1,5 +1,29 @@
 # Jak přidat další PMOD gadget
 
+## Složky
+
+V repozitáři `pmod` vytvoř si složku s názvem tvého gadgetu.
+Tvůj název složky najdeš v tabulce s moduly v Google Dokumentech (viz Discord).
+Název složky se bude shodovat s odkazem z webu: `https://pmod.robotikabrno.cz/RFID` (pro RFID modul je to `RFID`).
+
+Požadovaná struktura je následující:
+```bash
+RB00-pmod-gadgets
+├── pmod
+│   ├── IR
+│   │   ├── KiCad
+│   │   │   ├── IR.kicad_pcb
+│   │   │   ├── IR.kicad_pro
+│   │   │   ├── IR.kicad_sch
+│   │   ├── README.md
+│   │   ├── assets
+│   │   │   ├── default.png
+│   │   │   ├── pcb.png
+│   │   │   └── schema.png
+│   │   └── manual.md
+...
+```
+
 ## Soubory
 Zkopíruj si složku `template` v `pmod` a přejmenuj si jí pro tvůj gadget.
 
