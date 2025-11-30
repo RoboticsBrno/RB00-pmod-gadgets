@@ -13,7 +13,7 @@ Do `manual.md` dejte návod na sestavení
 
 
 ## Navigace
-Do `mkdocs.yml` úplně dole v sekci `nav` přidej název gadgety a umístění .md souborů. 
+Do `mkdocs.yml` úplně dole v sekci `nav` přidej název gadgety a umístění .md souborů.
 
 ## Obrázek
 V adresáři gadgetu musí být adresář `assets`. Tam musí existovat obrázek `default.png`!!
@@ -23,3 +23,28 @@ Vytvořze si složku `assets-large`, tam dávejte velké fotky, automaticky se z
 [Odkaz na dokumentaci](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#usage)
 
 Pokud není něco jasné koukni se do `IR` modulu, nebo napiš na discord.
+
+## Grafika
+
+Pokud je to možné, tak na všechny PMOD moduly přidejte prosím tyto grafické prvky:
+
+Přední část modulu:
+- link na web (https://pmod.robotikabrno.cz/IR)
+  - vaše URL se dozvíte v tabulce s moduly v Google Dokumentech (viz Discord)
+  - font: Kicad
+  - web netučně: pmod.robotikabrno.cz/
+  - název modulu tučně: IR
+  - celkově to vypadá takto: pmod.robotikabrno.cz/**IR**
+- logo Robotika Brno (v `pmod/assets/robotarna.svg`)
+- link na GitHub na modulu nebude, přidáme ho na web (link by byl dlouhej na malých destičkách)
+
+Zadní část modulu:
+- co se vejde to tam prosím dejte:
+  - pokud se vejde, tak opakovat link na web (pmod.robotikabrno.cz/**IR**)
+  - logo Robotika s textem Robotárna (v `pmod/assets/robotarna_full.svg`)
+
+
+Ukázka grafiky na RFID modulu:
+- velikost loga si upravte podle potřeby
+![RFID PMOD](pmod/assets/examples/rfid-front.png)
+![RFID PMOD back](pmod/assets/examples/rfid-back.png)
