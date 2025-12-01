@@ -110,9 +110,9 @@ nav:
   - DPad:
       - DPad/README.md
       - DPad/manual.md
-  - Bzučák:
-      - Buzzer/README.md
-      - Buzzer/manual.md
+  - Piezo:
+      - PIEZO/README.md
+      - PIEZO/manual.md
   # - Template:
   #     - template/README.md
   #     - template/manual.md
