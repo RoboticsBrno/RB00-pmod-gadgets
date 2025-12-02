@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 5,
+    "active_layer": 25,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -8,12 +8,12 @@
     "high_contrast_mode": 0,
     "net_color_mode": 1,
     "opacity": {
-      "images": 0.5299999713897705,
+      "images": 0.6,
       "pads": 1.0,
       "shapes": 1.0,
       "tracks": 1.0,
       "vias": 1.0,
-      "zones": 0.28999999165534973
+      "zones": 0.6
     },
     "selection_filter": {
       "dimensions": true,
@@ -30,35 +30,27 @@
     },
     "visible_items": [
       "vias",
-      "footprint_text",
-      "footprint_anchors",
       "ratsnest",
       "grid",
       "footprints_front",
       "footprints_back",
-      "footprint_values",
-      "footprint_references",
       "tracks",
-      "drc_errors",
-      "drawing_sheet",
       "bitmaps",
       "pads",
-      "drc_warnings",
-      "drc_exclusions",
-      "locked_item_shadows",
-      "conflict_shadows",
+      "zones",
       "shapes"
     ],
-    "visible_layers": "ffffffff_ffffffff_fffffff7_ffffffff",
+    "visible_layers": "00000000_00000000_0fffffff_ffffffff",
     "zone_display_mode": 0
   },
   "git": {
+    "repo_password": "",
     "repo_type": "",
     "repo_username": "",
     "ssh_key": ""
   },
   "meta": {
-    "filename": "dpad.kicad_prl",
+    "filename": "akcelerometr2.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {
@@ -87,6 +79,8 @@
       9
     ],
     "col_widths": [
+      0,
+      0,
       0,
       0,
       0,
