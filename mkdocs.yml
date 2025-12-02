@@ -113,6 +113,9 @@ nav:
   - Piezo:
       - PIEZO/README.md
       - PIEZO/manual.md
+  - Gyroskop/akcelerometr:
+      - gyro/README.md
+      - gyro/manual.md
   # - Template:
   #     - template/README.md
   #     - template/manual.md
