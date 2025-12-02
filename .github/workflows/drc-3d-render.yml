@@ -1,0 +1,178 @@
+name: KiCad CI
+
+on:
+  push:
+    paths:
+      - 'pmod/**'
+      - '!pmod/assets/**'
+      - '!pmod/template/**'
+  pull_request:
+    paths:
+      - 'pmod/**'
+      - '!pmod/assets/**'
+      - '!pmod/template/**'
+  workflow_dispatch:
+    inputs:
+      project_filter:
+        description: 'Filter by specific project (optional)'
+        required: false
+        default: ''
+        type: string
+
+jobs:
+  find-changed-projects:
+    runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.filter-projects.outputs.projects }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for proper diffing
+          
+      - name: Find changed KiCad projects
+        id: filter-projects
+        run: |
+          echo "Checking for changed files in pmod directory..."
+          
+          # Get the list of changed files
+          if [ "${{ github.event_name }}" == "push" ]; then
+            # For push events, compare with previous commit
+            if [ -n "${{ github.event.before }}" ]; then
+              CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- "pmod/")
+            else
+              # For initial push or force push, get all files
+              CHANGED_FILES=$(git log -1 --name-only --oneline ${{ github.sha }} -- "pmod/")
+            fi
+          elif [ "${{ github.event_name }}" == "pull_request" ]; then
+            # For PR events, compare with base branch
+            CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} -- "pmod/")
+          else
+            # For workflow_dispatch or other events, process all projects
+            echo "Manual trigger - processing all projects"
+            PROJECTS=$(find pmod -name "*.kicad_pro" -path "*/KiCad/*" | sed 's|/KiCad/.*\.kicad_pro||' | sort -u)
+            if [ -n "${{ github.event.inputs.project_filter }}" ]; then
+              echo "Filtering for project: ${{ github.event.inputs.project_filter }}"
+              PROJECTS=$(echo "$PROJECTS" | grep "${{ github.event.inputs.project_filter }}" || true)
+            fi
+            if [ -n "$PROJECTS" ]; then
+              # Convert to proper JSON array
+              JSON_PROJECTS=$(echo "$PROJECTS" | jq -R -s -c 'split("\n") | map(select(. != ""))')
+              echo "projects=$JSON_PROJECTS" >> $GITHUB_OUTPUT
+              echo "Manual projects: $JSON_PROJECTS"
+            else
+              echo 'projects=[]' >> $GITHUB_OUTPUT
+            fi
+            exit 0
+          fi
+          
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+          
+          # If no changed files found, exit early
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No changed files found in pmod directory"
+            echo 'projects=[]' >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          # Extract unique project directories from changed files
+          CHANGED_PROJECTS=()
+          while IFS= read -r file; do
+            if [[ "$file" =~ ^pmod/([^/]+)/ ]]; then
+              PROJECT_NAME="${BASH_REMATCH[1]}"
+              # Skip blacklisted directories
+              if [[ "$PROJECT_NAME" != "assets" && "$PROJECT_NAME" != "template" ]]; then
+                CHANGED_PROJECTS+=("pmod/$PROJECT_NAME")
+              fi
+            fi
+          done <<< "$CHANGED_FILES"
+          
+          # Remove duplicates and convert to JSON
+          if [ ${#CHANGED_PROJECTS[@]} -gt 0 ]; then
+            UNIQUE_PROJECTS=($(printf "%s\n" "${CHANGED_PROJECTS[@]}" | sort -u))
+            # Create proper JSON array
+            JSON_ARRAY="["
+            for i in "${!UNIQUE_PROJECTS[@]}"; do
+              if [ $i -gt 0 ]; then
+                JSON_ARRAY+=","
+              fi
+              JSON_ARRAY+="\"${UNIQUE_PROJECTS[$i]}\""
+            done
+            JSON_ARRAY+="]"
+            echo "Changed projects: $JSON_ARRAY"
+            echo "projects=$JSON_ARRAY" >> $GITHUB_OUTPUT
+          else
+            echo "No changed projects found"
+            echo 'projects=[]' >> $GITHUB_OUTPUT
+          fi
+
+  kicad-checks:
+    needs: find-changed-projects
+    if: needs.find-changed-projects.outputs.projects != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: ${{ fromJson(needs.find-changed-projects.outputs.projects) }}
+    name: KiCad DRC and 3D Export - ${{ matrix.project }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Extract project name
+        id: project-info
+        run: |
+          PROJECT_NAME=$(basename "${{ matrix.project }}")
+          echo "project_name=$PROJECT_NAME" >> $GITHUB_OUTPUT
+          echo "Processing project: ${{ matrix.project }}"
+          echo "Project name: $PROJECT_NAME"
+          
+      - name: Find project file
+        id: project-file
+        run: |
+          KICAD_DIR="${{ matrix.project }}/KiCad"
+          if [ -d "$KICAD_DIR" ]; then
+            PROJECT_FILE=$(find "$KICAD_DIR" -name "*.kicad_pro" -exec basename {} .kicad_pro \; | head -1)
+            if [ -n "$PROJECT_FILE" ]; then
+              echo "project_file=$PROJECT_FILE" >> $GITHUB_OUTPUT
+              echo "kicad_dir=$KICAD_DIR" >> $GITHUB_OUTPUT
+            else
+              echo "No KiCad project file found in $KICAD_DIR"
+              exit 1
+            fi
+          else
+            echo "KiCad directory not found: $KICAD_DIR"
+            exit 1
+          fi
+          
+      - name: Create assets directory
+        run: |
+          mkdir -p "${{ matrix.project }}/assets"
+          
+      - name: Run KiCad DRC (continue on error)
+        uses: sparkengineering/kicad-action@v4
+        with:
+          kicad_pcb: "${{ steps.project-file.outputs.kicad_dir }}/${{ steps.project-file.outputs.project_file }}.kicad_pcb"
+          pcb_drc: true
+        continue-on-error: true
+          
+      - name: Generate 3D render
+        uses: sparkengineering/kicad-action@v4
+        with:
+          kicad_pcb: "${{ steps.project-file.outputs.kicad_dir }}/${{ steps.project-file.outputs.project_file }}.kicad_pcb"
+          pcb_image: true
+          pcb_image_path: "${{ matrix.project }}/assets/default.png"
+          
+      - name: Upload DRC report if failed
+        uses: actions/upload-artifact@v4
+        if: ${{ failure() }}
+        with:
+          name: drc-report-${{ steps.project-info.outputs.project_name }}
+          path: ${{ steps.project-file.outputs.kicad_dir }}/drc.rpt
+          
+      - name: Upload 3D render
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: 3d-render-${{ steps.project-info.outputs.project_name }}
+          path: ${{ matrix.project }}/assets/default.png
