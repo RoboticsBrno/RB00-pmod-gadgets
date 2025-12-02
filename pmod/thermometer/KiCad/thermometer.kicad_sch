@@ -1061,7 +1061,7 @@
 			(uuid "0f7649f3-a44d-4df2-a59b-83f350b61861")
 		)
 		(instances
-			(project "robocamp_temperature"
+			(project "thermometer"
 				(path "/c7b5f5ba-a3a5-41ac-8d4c-ad3f1572fad6"
 					(reference "#PWR03")
 					(unit 1)
@@ -1415,7 +1415,7 @@
 			(uuid "6813172e-032a-41c8-a6a9-a9a4557199b5")
 		)
 		(instances
-			(project "robocamp_temperature"
+			(project "thermometer"
 				(path "/c7b5f5ba-a3a5-41ac-8d4c-ad3f1572fad6"
 					(reference "#PWR04")
 					(unit 1)
@@ -1482,7 +1482,7 @@
 			(uuid "95d548da-97c4-455d-9bc5-ec860abc3daf")
 		)
 		(instances
-			(project "robocamp_temperature"
+			(project "thermometer"
 				(path "/c7b5f5ba-a3a5-41ac-8d4c-ad3f1572fad6"
 					(reference "#PWR05")
 					(unit 1)
