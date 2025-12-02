@@ -3105,8 +3105,8 @@
 			(justify left bottom mirror)
 		)
 	)
-	(gr_text "Temperature"
-		(at 148.75 107.75 -0)
+	(gr_text "thermometer"
+		(at 148.75 107.75 0)
 		(layer "B.SilkS")
 		(uuid "25ba51e5-b1d6-4a5b-b3e1-9c010268e44a")
 		(effects
