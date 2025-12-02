@@ -110,6 +110,9 @@ nav:
   - DPad:
       - DPad/README.md
       - DPad/manual.md
+  - RFID:
+      - RFID/README.md
+      - RFID/manual.md
   - Piezo:
       - PIEZO/README.md
       - PIEZO/manual.md
