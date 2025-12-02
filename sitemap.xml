@@ -56,6 +56,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://pmod.robotikabrno.cz/RotaryEncoder/</loc>
+         <lastmod>2025-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://pmod.robotikabrno.cz/RotaryEncoder/manual/</loc>
+         <lastmod>2025-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://pmod.robotikabrno.cz/gyro/</loc>
          <lastmod>2025-12-02</lastmod>
          <changefreq>daily</changefreq>
