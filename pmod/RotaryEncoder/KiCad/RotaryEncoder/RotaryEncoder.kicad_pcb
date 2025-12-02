@@ -4110,6 +4110,16 @@
 		(layer "B.SilkS")
 		(uuid "217adac9-f44d-4d26-a93c-a337e0ecf8e4")
 	)
+	(gr_line
+		(start 140.5 84.25)
+		(end 141 83.75)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "25680a20-e8ca-4667-985b-50a4e490737f")
+	)
 	(gr_poly
 		(pts
 			(xy 125.290425 68.504426) (xy 124.744694 68.504426) (xy 124.743913 68.473865) (xy 124.741595 68.443705)
@@ -4138,6 +4148,16 @@
 		(fill yes)
 		(layer "B.SilkS")
 		(uuid "25ef0299-81a3-4946-895b-fa925dece329")
+	)
+	(gr_line
+		(start 140.5 76.25)
+		(end 141 76.75)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "52507fe3-42f3-4e49-b25f-ff9090c0c760")
 	)
 	(gr_poly
 		(pts
@@ -4173,6 +4193,16 @@
 		(layer "B.SilkS")
 		(uuid "59485661-7597-4fc8-935f-ce339824ad14")
 	)
+	(gr_line
+		(start 140.5 82.75)
+		(end 140.5 84.25)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "5ca7acc0-789d-48d9-b0f9-b3a400602163")
+	)
 	(gr_poly
 		(pts
 			(xy 124.166826 68.000015) (xy 124.192545 68.00198) (xy 124.217903 68.005208) (xy 124.242869 68.009668)
@@ -4200,6 +4230,26 @@
 		(fill yes)
 		(layer "B.SilkS")
 		(uuid "70ae505a-3b06-4ba6-abad-88530d83fb07")
+	)
+	(gr_line
+		(start 131 70.64125)
+		(end 129.5 70.64125)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "720184e0-9b3c-4cde-92df-0df7ea1846dd")
+	)
+	(gr_line
+		(start 140.5 76.25)
+		(end 140 76.75)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "733cd084-8c98-43ce-8c96-7efb26870849")
 	)
 	(gr_poly
 		(pts
@@ -4229,6 +4279,26 @@
 		(fill yes)
 		(layer "B.SilkS")
 		(uuid "806ab657-7c70-4445-b821-2a43efd22046")
+	)
+	(gr_line
+		(start 137.5 70.64125)
+		(end 137 70.14125)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "8531a072-f5ec-46dd-ac1f-e552872edddc")
+	)
+	(gr_line
+		(start 129.5 70.64125)
+		(end 130 71.14125)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "93b77d02-8b3c-4a19-9fb5-e7a65dabe338")
 	)
 	(gr_poly
 		(pts
@@ -4349,6 +4419,26 @@
 		(layer "B.SilkS")
 		(uuid "bdb801e2-a566-4ab5-ba3b-39bd86235651")
 	)
+	(gr_line
+		(start 140.5 77.75)
+		(end 140.5 76.25)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "c9e9acb8-77f3-48aa-aadb-2151fb4af69e")
+	)
+	(gr_line
+		(start 136 70.64125)
+		(end 137.5 70.64125)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "d05e4187-ff91-40c7-ae87-41dac3fb346b")
+	)
 	(gr_poly
 		(pts
 			(xy 126.655739 71.765171) (xy 126.028544 71.765171) (xy 126.027646 71.730048) (xy 126.024982 71.695386)
@@ -4377,6 +4467,36 @@
 		(fill yes)
 		(layer "B.SilkS")
 		(uuid "da6a6b9f-b972-440d-a84b-be36ea83e169")
+	)
+	(gr_line
+		(start 140.5 84.25)
+		(end 140 83.75)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "dd4dfde3-0ca1-4344-aad9-b7e435ed5d5d")
+	)
+	(gr_line
+		(start 137.5 70.64125)
+		(end 137 71.14125)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "e047e068-493a-45b1-a6d0-f2ba2d7a604d")
+	)
+	(gr_line
+		(start 129.5 70.64125)
+		(end 130 70.14125)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "f616b6ce-b032-42dd-a3c7-a44c4917bf8d")
 	)
 	(gr_line
 		(start 141 66)
@@ -4487,6 +4607,19 @@
 			(justify left bottom)
 		)
 	)
+	(gr_text "M3"
+		(at 112 98.25 -0)
+		(layer "B.SilkS")
+		(uuid "0ac8ea86-c12b-48ea-a63f-1a3e272a6c0b")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
 	(gr_text "VCC"
 		(at 110 93.5 0)
 		(layer "B.SilkS")
@@ -4511,6 +4644,32 @@
 			(justify left bottom mirror)
 		)
 	)
+	(gr_text "M3"
+		(at 142.25 74.75 -0)
+		(layer "B.SilkS")
+		(uuid "324fcb19-4e64-460c-9ec8-05fa6f9b92ce")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "M3"
+		(at 142.25 98.5 -0)
+		(layer "B.SilkS")
+		(uuid "4881a011-ad1d-4659-a74d-6299f172dada")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
 	(gr_text "A"
 		(at 110 81 0)
 		(layer "B.SilkS")
@@ -4519,6 +4678,31 @@
 			(font
 				(size 1 1)
 				(thickness 0.1)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "30mm"
+		(at 140 82.5 270)
+		(layer "B.SilkS")
+		(uuid "51c1ba5f-dabb-459f-9575-1e07a2330a43")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.125)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "M3"
+		(at 112 74.75 -0)
+		(layer "B.SilkS")
+		(uuid "758ebc25-03cc-4543-b258-0c9112c4be86")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
 			)
 			(justify left bottom mirror)
 		)
@@ -4564,6 +4748,18 @@
 		(at 138 102.5 0)
 		(layer "B.SilkS")
 		(uuid "c51cee55-73ac-44b2-a65f-4d7411f5399c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.125)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "30mm"
+		(at 135.75 71.14125 0)
+		(layer "B.SilkS")
+		(uuid "ff52a18a-b10e-4cd6-88aa-77af623d83ff")
 		(effects
 			(font
 				(size 1 1)
@@ -6121,6 +6317,22 @@
 			"cf190805-d397-44d7-b155-81c629f44cbf" "d28b2bc5-1789-44af-8b4d-dae9fbe9ef9f"
 			"e1db756c-2eb9-4cf5-8754-a837db3d8f6e" "e4e8ec12-f570-405a-9ae3-9498a1bfb505"
 			"ec4ef81b-ce2d-47c9-b3b8-fd2973c0080e"
+		)
+	)
+	(group ""
+		(uuid "59c099f6-8ba2-4099-ab44-f6d777c004c9")
+		(members "720184e0-9b3c-4cde-92df-0df7ea1846dd" "8531a072-f5ec-46dd-ac1f-e552872edddc"
+			"93b77d02-8b3c-4a19-9fb5-e7a65dabe338" "d05e4187-ff91-40c7-ae87-41dac3fb346b"
+			"e047e068-493a-45b1-a6d0-f2ba2d7a604d" "f616b6ce-b032-42dd-a3c7-a44c4917bf8d"
+			"ff52a18a-b10e-4cd6-88aa-77af623d83ff"
+		)
+	)
+	(group ""
+		(uuid "72eab42f-b5f3-424f-b3af-d1c6a000b04f")
+		(members "25680a20-e8ca-4667-985b-50a4e490737f" "51c1ba5f-dabb-459f-9575-1e07a2330a43"
+			"52507fe3-42f3-4e49-b25f-ff9090c0c760" "5ca7acc0-789d-48d9-b0f9-b3a400602163"
+			"733cd084-8c98-43ce-8c96-7efb26870849" "c9e9acb8-77f3-48aa-aadb-2151fb4af69e"
+			"dd4dfde3-0ca1-4344-aad9-b7e435ed5d5d"
 		)
 	)
 	(group ""
