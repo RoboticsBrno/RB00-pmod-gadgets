@@ -110,6 +110,9 @@ nav:
   - DPad:
       - DPad/README.md
       - DPad/manual.md
+  - Senzor teploty:
+      - thermometer/README.md
+      - thermometer/manual.md
   - RFID:
       - RFID/README.md
       - RFID/manual.md
