@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "CMEJ-9745-37-P")(type "KiCad")(uri "${KIPRJMOD}/components/CMEJ-9745-37-P")(options "")(descr ""))
+)
