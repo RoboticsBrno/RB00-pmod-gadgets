@@ -168,6 +168,7 @@ node_modules/
 
 *.zip
 *.zip.hash
+gerber
 .vscode
 .DS_Store
 
