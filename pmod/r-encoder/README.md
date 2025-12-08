@@ -1,3 +1,3 @@
-# Ukázkový modul
+# R-Encoder
 
 Co to je?

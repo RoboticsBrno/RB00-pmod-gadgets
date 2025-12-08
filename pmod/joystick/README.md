@@ -1,3 +1,3 @@
-# Ukázkový modul
+# Joystick
 
 Co to je?
