@@ -93,7 +93,6 @@
 			(psnegative no)
 			(psa4output no)
 			(plot_black_and_white yes)
-			(plotinvisibletext no)
 			(sketchpadsonfab no)
 			(plotpadnumbers no)
 			(hidednponfab no)
@@ -396,7 +395,7 @@
 			(size 1.2 1.8)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.208333)
-			(uuid "e6a4a6b2-575d-49f5-8674-87fc0abf53e7")
+			(uuid "723597fe-8ef9-4191-8ab1-d77265ded5ca")
 		)
 		(embedded_fonts no)
 		(model "${KICAD9_3DMODEL_DIR}/Connector_JST.3dshapes/JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal.wrl"
@@ -1109,7 +1108,7 @@
 			(size 1.2 1.8)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.208333)
-			(uuid "340d7712-be54-4e37-a7b8-62e81500199c")
+			(uuid "efee9f77-f8b6-4aeb-9524-4409e37ebe9c")
 		)
 		(embedded_fonts no)
 		(model "${KICAD9_3DMODEL_DIR}/Connector_JST.3dshapes/JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal.wrl"
@@ -3361,7 +3360,7 @@
 		)
 		(polygon
 			(pts
-				(xy 159 78) (xy 144 73.5) (xy 115.5 80) (xy 116.5 118) (xy 157.5 118.5)
+				(xy 148.59 76.2) (xy 129.54 76.2) (xy 129.54 115.57) (xy 148.463 115.57)
 			)
 		)
 		(filled_polygon
