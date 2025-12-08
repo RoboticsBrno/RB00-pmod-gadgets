@@ -1310,31 +1310,9 @@
 		)
 		(uuid "c6714565-8938-403b-b749-58d58028b2b7")
 	)
-	(global_label "A"
-		(shape input)
-		(at 27.94 44.45 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "00f18ed0-e4ec-4b68-959f-252b6bed4b5c")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 32.0138 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "B"
 		(shape input)
-		(at 27.94 46.99 0)
+		(at 27.94 49.53 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1342,9 +1320,9 @@
 			)
 			(justify left)
 		)
-		(uuid "290ae423-ad64-4ae0-9e2b-9e767ae58f90")
+		(uuid "2e716920-e25f-4410-9558-0f2751da1f04")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 32.1952 46.99 0)
+			(at 32.1952 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1356,7 +1334,7 @@
 	)
 	(global_label "BTN"
 		(shape input)
-		(at 27.94 49.53 0)
+		(at 27.94 46.99 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1364,9 +1342,9 @@
 			)
 			(justify left)
 		)
-		(uuid "5c8ebdf0-d030-4b3e-b5f0-54010c340687")
+		(uuid "393fce40-5c60-4d94-9661-52b1be03e4b6")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 34.4933 49.53 0)
+			(at 34.4933 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1438,6 +1416,28 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "A"
+		(shape input)
+		(at 27.94 52.07 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "dd31f2f1-0f69-48b2-b6d3-76a326fbeb61")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 32.0138 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -1800,7 +1800,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Horizontal"
 			(at 22.86 49.53 0)
 			(effects
 				(font
