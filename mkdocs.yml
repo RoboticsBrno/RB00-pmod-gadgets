@@ -131,6 +131,9 @@ nav:
   - Microphone:
       - microphone/README.md
       - microphone/manual.md
+  - RTC:
+      - RTC/README.md
+      - RTC/manual.md
   # - Template:
   #     - template/README.md
   #     - template/manual.md
