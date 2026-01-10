@@ -1,0 +1,4 @@
+(version 1)
+(rule ViaNearPad
+   (constraint physical_hole_clearance (min 0.15mm))
+   (condition "A.Type == 'via' && B.Type == 'pad'") )
