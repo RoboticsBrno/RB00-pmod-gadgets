@@ -6,7 +6,7 @@ Jak ho sestavit
 
     ![PMOD](assets/step1-pmod.png)
 
-2. Rezistor 180
+2. Rezistor 100
 
     ![Resistor](assets/step2-resistor.png)
 
@@ -15,7 +15,7 @@ Jak ho sestavit
     !!! warning "Ploška na diodě musí směřovat dovnitř desky"
     ![IR Diode](assets/step3-diode.png)
 
-4. Rezistor 180
+4. IR Přijímač
 
     ![Reciever](assets/step4-reciever.png)
 
