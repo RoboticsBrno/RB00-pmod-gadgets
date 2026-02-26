@@ -5373,6 +5373,86 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Mechanical:Fiducial"
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "FID"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Fiducial"
+				(at 0 3.175 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Fiducial Marker"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "fiducial marker"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Fiducial*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Fiducial_0_1"
+				(circle
+					(center 0 0)
+					(radius 1.27)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Mechanical:MountingHole"
 			(pin_names
 				(offset 1.016)
@@ -7290,17 +7370,6 @@
 		)
 		(uuid "61bb0889-b738-4bb7-a36a-b14c8a34f00b")
 	)
-	(text "Změny oproti @Vigh verzi\n\nodstraněna VBUS dioda\npřidán microUSB\npoužit CH340 z Robutka\nUSB ESD\nseparovány I2C, 2x2 uŠupy\nuŠupy vyvedeny také na pinhead díry\nzměněn display pinout, rozmístění GND, odpojen jeden EX pin\npřidáno trochu filtrování v napájení displaye\npřidány 100R rezistory na IO\npřidány 100nF k IO portům\nzměna na 0402\numožněno použití 8MB Octal PSRAM\nodstraněna gpio stupid LED\npřidána smart LED + výstup na LED pásek (jak na Robutkovi)\nzmenšeny rozměry DPS\npoházeny pinouty GPIO pro lepší layout"
-		(exclude_from_sim no)
-		(at 336.804 253.492 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "625ef557-eb23-45f1-aef2-982fa38cb70b")
-	)
 	(text "RP-HUB Display"
 		(exclude_from_sim no)
 		(at 347.472 161.544 0)
@@ -9131,7 +9200,7 @@
 	)
 	(wire
 		(pts
-			(xy 342.9 170.18) (xy 350.52 170.18)
+			(xy 344.17 170.18) (xy 350.52 170.18)
 		)
 		(stroke
 			(width 0)
@@ -10541,7 +10610,7 @@
 	)
 	(wire
 		(pts
-			(xy 342.9 165.1) (xy 346.71 165.1)
+			(xy 344.17 165.1) (xy 346.71 165.1)
 		)
 		(stroke
 			(width 0)
@@ -11221,7 +11290,7 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 114.3) (xy 161.29 114.3)
+			(xy 144.78 114.3) (xy 160.02 114.3)
 		)
 		(stroke
 			(width 0)
@@ -12160,7 +12229,7 @@
 		(uuid "1099381f-9183-4c5c-8b73-28f56326c029")
 	)
 	(label "DISPLAY_CS"
-		(at 342.9 170.18 180)
+		(at 344.17 170.18 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -12640,7 +12709,7 @@
 		(uuid "afd0e6e0-4f04-41d9-829d-e046b66c2fd9")
 	)
 	(label "ESP_TX_CP_RX"
-		(at 161.29 114.3 180)
+		(at 160.02 114.3 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -12840,7 +12909,7 @@
 		(uuid "f70d1bd8-3470-43be-ac96-ab8ae7d13b38")
 	)
 	(label "DISPLAY_CLK"
-		(at 342.9 165.1 180)
+		(at 344.17 165.1 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -13328,6 +13397,15 @@
 		)
 		(property "Description" "Jumper, 3-pole, both open"
 			(at 344.17 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C49257"
+			(at 344.17 85.09 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14376,6 +14454,15 @@
 		)
 		(property "Description" "Jumper, 3-pole, both open"
 			(at 344.17 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C49257"
+			(at 344.17 48.26 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16386,6 +16473,15 @@
 		)
 		(property "Description" "Generic connectable mounting pin connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 236.22 219.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C7430446"
+			(at 236.22 219.71 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19015,6 +19111,15 @@
 		)
 		(property "Description" "Generic connectable mounting pin connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 149.86 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C7430446"
+			(at 149.86 220.98 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22632,6 +22737,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C7430446"
+			(at 219.71 219.71 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "bf68ba4b-d20b-4e2e-82cd-d14e9c242294")
 		)
@@ -22871,6 +22985,70 @@
 			(project "core_board"
 				(path "/1437d78f-2672-4553-b786-22c28e887ed9"
 					(reference "#PWR054")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 66.04 275.59 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ac27c913-858c-4029-90ac-ececaf38cdaf")
+		(property "Reference" "H6"
+			(at 68.58 274.3199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 68.58 276.8599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:ToolingHole_1.152mm"
+			(at 66.04 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 66.04 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 66.04 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "core_board"
+				(path "/1437d78f-2672-4553-b786-22c28e887ed9"
+					(reference "H6")
 					(unit 1)
 				)
 			)
@@ -23194,6 +23372,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 388.62 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2897388"
 			(at 388.62 40.64 0)
 			(effects
 				(font
@@ -23818,101 +24005,6 @@
 			(project "core_board"
 				(path "/1437d78f-2672-4553-b786-22c28e887ed9"
 					(reference "#PWR034")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Pack04_Split")
-		(at 367.03 154.94 90)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c1ec3869-4f34-4612-b2e9-d02b0506fa46")
-		(property "Reference" "RN6"
-			(at 367.03 154.94 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "100R"
-			(at 373.38 156.21 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_Array_Convex_4x0603"
-			(at 367.03 152.908 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8586175564180819968"
-			(at 367.03 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "4 resistor network, parallel topology, split"
-			(at 367.03 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C25506"
-			(at 367.03 154.94 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "6d40e962-4816-45f0-b26a-99001c2c77b3")
-		)
-		(pin "5"
-			(uuid "43a50b4d-e620-40e7-9dbc-3f0d88a6d7a8")
-		)
-		(pin "7"
-			(uuid "5eaccaf0-8056-4c7b-a094-430a68bef724")
-		)
-		(pin "8"
-			(uuid "9995411e-3b69-4feb-a2b5-e738b3d9181f")
-		)
-		(pin "4"
-			(uuid "bbcf8e00-3b7d-4b99-bb96-a4242624e7da")
-		)
-		(pin "6"
-			(uuid "2c420afa-fbed-43de-95cf-ce289ce26fd2")
-		)
-		(pin "1"
-			(uuid "9de2c8bb-7d71-4250-86e8-a1ae87f308c3")
-		)
-		(pin "2"
-			(uuid "b0d25404-c8a8-4151-9c23-7dba4f30f3f1")
-		)
-		(instances
-			(project "core_board"
-				(path "/1437d78f-2672-4553-b786-22c28e887ed9"
-					(reference "RN6")
 					(unit 1)
 				)
 			)
@@ -24775,6 +24867,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C7430446"
+			(at 132.08 220.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "5d48d0ee-0535-445e-af57-79d21ad7615d")
 		)
@@ -24844,6 +24945,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 388.62 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2897388"
 			(at 388.62 77.47 0)
 			(effects
 				(font
@@ -24988,6 +25098,70 @@
 			(project "core_board"
 				(path "/1437d78f-2672-4553-b786-22c28e887ed9"
 					(reference "R36")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:Fiducial")
+		(at 107.95 279.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d489331a-fe32-4d60-99fb-f6caa8a8632b")
+		(property "Reference" "FID2"
+			(at 110.49 278.1299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Fiducial"
+			(at 110.49 280.6699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
+			(at 107.95 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 107.95 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Fiducial Marker"
+			(at 107.95 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "core_board"
+				(path "/1437d78f-2672-4553-b786-22c28e887ed9"
+					(reference "FID2")
 					(unit 1)
 				)
 			)
@@ -25251,6 +25425,15 @@
 		)
 		(property "Description" "Jumper, 3-pole, both open"
 			(at 262.89 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C49257"
+			(at 262.89 48.26 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25693,6 +25876,134 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 66.04 280.67 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ddc7c4e4-0fbe-4aa3-b786-90afeaf70617")
+		(property "Reference" "H7"
+			(at 68.58 279.3999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 68.58 281.9399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:ToolingHole_1.152mm"
+			(at 66.04 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 66.04 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 66.04 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "core_board"
+				(path "/1437d78f-2672-4553-b786-22c28e887ed9"
+					(reference "H7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:Fiducial")
+		(at 93.98 279.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ddd4caa7-c574-4425-b113-838e3b5ace71")
+		(property "Reference" "FID1"
+			(at 96.52 278.1299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Fiducial"
+			(at 96.52 280.6699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
+			(at 93.98 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 93.98 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Fiducial Marker"
+			(at 93.98 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/1437d78f-2672-4553-b786-22c28e887ed9"
+					(reference "FID1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Pack04_Split")
 		(at 354.33 177.8 90)
 		(mirror x)
@@ -25796,7 +26107,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "def280a9-7f78-4f65-9783-32dc7965503a")
+		(uuid "def280a9-7f78-4f65-9783-32dc7965503b")
 		(property "Reference" "RN5"
 			(at 354.33 180.34 90)
 			(effects
@@ -25850,28 +26161,28 @@
 			)
 		)
 		(pin "3"
-			(uuid "e8c7a096-ced2-4a28-b609-122fb951d665")
+			(uuid "e8c7a096-ced2-4a28-b609-122fb951d666")
 		)
 		(pin "5"
-			(uuid "43a50b4d-e620-40e7-9dbc-3f0d88a6d7ac")
+			(uuid "43a50b4d-e620-40e7-9dbc-3f0d88a6d7ad")
 		)
 		(pin "7"
-			(uuid "5eaccaf0-8056-4c7b-a094-430a68bef728")
+			(uuid "5eaccaf0-8056-4c7b-a094-430a68bef729")
 		)
 		(pin "8"
-			(uuid "e024df25-bf64-4d06-95fd-9107c25ef5e7")
+			(uuid "e024df25-bf64-4d06-95fd-9107c25ef5e8")
 		)
 		(pin "4"
-			(uuid "bbcf8e00-3b7d-4b99-bb96-a4242624e7de")
+			(uuid "bbcf8e00-3b7d-4b99-bb96-a4242624e7df")
 		)
 		(pin "6"
-			(uuid "c6fbb1a1-587c-486c-97b5-6ba9d7b5ff6e")
+			(uuid "c6fbb1a1-587c-486c-97b5-6ba9d7b5ff6f")
 		)
 		(pin "1"
-			(uuid "39fc28ff-c481-4fb3-8ee8-5038e36982b0")
+			(uuid "39fc28ff-c481-4fb3-8ee8-5038e36982b1")
 		)
 		(pin "2"
-			(uuid "b0d25404-c8a8-4151-9c23-7dba4f30f3f5")
+			(uuid "b0d25404-c8a8-4151-9c23-7dba4f30f3f6")
 		)
 		(instances
 			(project "core_board"
@@ -26313,6 +26624,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C2897426"
+			(at 317.5 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "6"
 			(uuid "257d49eb-0da3-436e-b20f-ec89c2373f0c")
 		)
@@ -26557,25 +26877,25 @@
 			(uuid "473da9d0-a89b-4c82-8d04-c47ab7c873d0")
 		)
 		(pin "5"
-			(uuid "43a50b4d-e620-40e7-9dbc-3f0d88a6d7ad")
+			(uuid "43a50b4d-e620-40e7-9dbc-3f0d88a6d7ae")
 		)
 		(pin "7"
-			(uuid "5eaccaf0-8056-4c7b-a094-430a68bef729")
+			(uuid "5eaccaf0-8056-4c7b-a094-430a68bef72a")
 		)
 		(pin "8"
-			(uuid "e024df25-bf64-4d06-95fd-9107c25ef5e8")
+			(uuid "e024df25-bf64-4d06-95fd-9107c25ef5e9")
 		)
 		(pin "4"
-			(uuid "bbcf8e00-3b7d-4b99-bb96-a4242624e7df")
+			(uuid "bbcf8e00-3b7d-4b99-bb96-a4242624e7e0")
 		)
 		(pin "6"
 			(uuid "62381eac-c808-4ee2-b488-8e05c8b98bf5")
 		)
 		(pin "1"
-			(uuid "39fc28ff-c481-4fb3-8ee8-5038e36982b1")
+			(uuid "39fc28ff-c481-4fb3-8ee8-5038e36982b2")
 		)
 		(pin "2"
-			(uuid "b0d25404-c8a8-4151-9c23-7dba4f30f3f6")
+			(uuid "b0d25404-c8a8-4151-9c23-7dba4f30f3f7")
 		)
 		(instances
 			(project "core_board"
@@ -27079,6 +27399,70 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 66.04 270.51 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f1ba360b-3969-44be-b5b3-20b9428fbc52")
+		(property "Reference" "H5"
+			(at 68.58 269.2399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 68.58 271.7799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:ToolingHole_1.152mm"
+			(at 66.04 270.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 66.04 270.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 66.04 270.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "core_board"
+				(path "/1437d78f-2672-4553-b786-22c28e887ed9"
+					(reference "H5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 125.095 26.67 0)
 		(unit 1)
@@ -27139,6 +27523,70 @@
 			(project "core_board"
 				(path "/1437d78f-2672-4553-b786-22c28e887ed9"
 					(reference "#PWR053")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:Fiducial")
+		(at 121.92 279.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f562b308-9ce4-4215-9d9f-b7f6b2212639")
+		(property "Reference" "FID3"
+			(at 124.46 278.1299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Fiducial"
+			(at 124.46 280.6699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
+			(at 121.92 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 121.92 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Fiducial Marker"
+			(at 121.92 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "core_board"
+				(path "/1437d78f-2672-4553-b786-22c28e887ed9"
+					(reference "FID3")
 					(unit 1)
 				)
 			)
@@ -27543,7 +27991,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "EEEFK1H470XP"
+		(property "Value" "RVT1V470M0605"
 			(at 308.61 211.2009 0)
 			(effects
 				(font
@@ -27552,7 +28000,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7"
+		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x5.4"
 			(at 305.7652 214.63 0)
 			(effects
 				(font
@@ -27561,7 +28009,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588901001600372736"
+		(property "Datasheet" ""
 			(at 304.8 210.82 0)
 			(effects
 				(font
@@ -27571,6 +28019,15 @@
 			)
 		)
 		(property "Description" "Polarized capacitor"
+			(at 304.8 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C72522"
 			(at 304.8 210.82 0)
 			(effects
 				(font
