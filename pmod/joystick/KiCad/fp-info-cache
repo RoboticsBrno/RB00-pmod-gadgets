@@ -1,4 +1,4 @@
-24884089920138552
+24896614060126602
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -2568,6 +2568,13 @@ speaker CUI
 0
 2
 2
+COM-09032
+XDCR_COM-09032
+
+
+0
+14
+14
 Calibration_Scale
 Gauge_10mm_Type1_CopperTop
 Gauge, Massstab, 10mm, CopperTop, Type 1,
@@ -89019,6 +89026,13 @@ RKL-Batteries
 10
 5
 RKL-Batteries
+ParksideHolder
+
+
+0
+0
+0
+RKL-Batteries
 battery_dock
 
 
@@ -89117,12 +89131,26 @@ USB31-TYPEC-33141-2FS
 28
 25
 RKL-Connectors
+WAGO-Spring-Terminal-01x02
+
+
+0
+4
+2
+RKL-Connectors
 XD-XH-4ALT
 
 
 0
 6
 5
+RKL-Connectors
+XW10202-20R-00
+
+
+0
+20
+20
 RKL-Connectors
 YZ157015035P-01
 
@@ -89149,7 +89177,7 @@ micro-SD
 
 
 0
-15
+13
 10
 RKL-Connectors
 usb-PCB
@@ -89284,6 +89312,13 @@ svg2mod
 0
 0
 0
+RKL-Inductors
+FXL0630
+
+
+0
+2
+2
 RKL-Inductors
 MCF-1040
 
@@ -89453,6 +89488,13 @@ JMSL0
 9
 3
 RKL-StandardPackages
+JMSL0302AU
+
+
+0
+9
+3
+RKL-StandardPackages
 LGA-20
 
 
@@ -89480,6 +89522,13 @@ SMD,3.5x2.8x1.9mm
 0
 2
 2
+RKL-StandardPackages
+SY8368QNC
+
+
+0
+12
+10
 RKL-StandardPackages
 UDFN6-3x3mm
 
