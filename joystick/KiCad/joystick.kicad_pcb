@@ -4536,16 +4536,89 @@
 		(layer "B.SilkS")
 		(uuid "fca46780-d84d-45dc-8528-c6a7d3879e13")
 	)
-	(gr_rect
-		(start 63.6 33.7)
-		(end 100.6 66.7)
+	(gr_arc
+		(start 100.6 63.8)
+		(mid 99.72132 65.92132)
+		(end 97.6 66.8)
 		(stroke
 			(width 0.1)
-			(type solid)
+			(type default)
 		)
-		(fill no)
 		(layer "Edge.Cuts")
-		(uuid "3baf7ddb-2b24-4028-b9dc-b53c3a9b94a2")
+		(uuid "44c95e37-72de-400a-9f8c-bb369b4be864")
+	)
+	(gr_line
+		(start 63.6 63.8)
+		(end 63.6 36.8)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "4ed6025d-5e50-468e-b5d2-b0011827797e")
+	)
+	(gr_arc
+		(start 97.6 33.8)
+		(mid 99.72132 34.67868)
+		(end 100.6 36.8)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "8af56698-024d-4c8f-8602-e1707ea57161")
+	)
+	(gr_line
+		(start 97.6 66.8)
+		(end 66.6 66.8)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "8d4c32c5-46b6-420a-824c-220bc7cc2e93")
+	)
+	(gr_line
+		(start 66.6 33.8)
+		(end 97.6 33.8)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "9821cb18-8d6e-4411-910b-c038d67e06e1")
+	)
+	(gr_line
+		(start 100.6 36.8)
+		(end 100.6 63.8)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "bddccf92-101d-4b9a-9bb7-ac7ff8c53aa1")
+	)
+	(gr_arc
+		(start 63.6 36.8)
+		(mid 64.47868 34.67868)
+		(end 66.6 33.8)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "c0f363c8-ee40-456a-b7ff-b58b5426b716")
+	)
+	(gr_arc
+		(start 66.6 66.8)
+		(mid 64.47868 65.92132)
+		(end 63.6 63.8)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "cbba9773-543f-40b5-92fb-c565b563f904")
 	)
 	(gr_text "BTN"
 		(at 92.2 52.6 0)
@@ -5415,6 +5488,14 @@
 	(group ""
 		(uuid "ea443b35-8d3b-46b4-a9b2-16df04ded675")
 		(members "0eda9b19-0114-4fa7-93fc-0650f7efd4a9" "4b9cd960-9295-4a9b-98b4-97d09e3ef033")
+	)
+	(group ""
+		(uuid "ecc56fcf-b231-4554-b65b-eaf50fd7efa4")
+		(members "44c95e37-72de-400a-9f8c-bb369b4be864" "4ed6025d-5e50-468e-b5d2-b0011827797e"
+			"8af56698-024d-4c8f-8602-e1707ea57161" "8d4c32c5-46b6-420a-824c-220bc7cc2e93"
+			"9821cb18-8d6e-4411-910b-c038d67e06e1" "bddccf92-101d-4b9a-9bb7-ac7ff8c53aa1"
+			"c0f363c8-ee40-456a-b7ff-b58b5426b716" "cbba9773-543f-40b5-92fb-c565b563f904"
+		)
 	)
 	(embedded_fonts no)
 )
