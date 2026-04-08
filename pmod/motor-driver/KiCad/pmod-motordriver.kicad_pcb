@@ -4961,13 +4961,39 @@
 		(effects
 			(font
 				(size 1.55 1.5)
-				(thickness 0.1)
+				(thickness 0.24)
 			)
 			(justify left top mirror)
 		)
 	)
+	(gr_text "- POWER +"
+		(at 156 102.96 0)
+		(layer "B.SilkS" knockout)
+		(uuid "28fb06d3-95ce-4dbd-8644-1044e5a6026d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.24)
+				(bold yes)
+			)
+			(justify mirror)
+		)
+	)
+	(gr_text "+ A - | - B +"
+		(at 138 112.540001 90)
+		(layer "B.SilkS" knockout)
+		(uuid "b3903680-25f3-4c08-8bde-e53355ed9a2d")
+		(effects
+			(font
+				(size 1 1.5)
+				(thickness 0.24)
+				(bold yes)
+			)
+			(justify mirror)
+		)
+	)
 	(gr_text "EXT POWER\nPWR SELECT\nPMOD 5V"
-		(at 172.04 108.02 90)
+		(at 171.04 106.2 90)
 		(layer "B.SilkS")
 		(uuid "c38649bb-2db3-49f9-8623-be279e849954")
 		(effects
