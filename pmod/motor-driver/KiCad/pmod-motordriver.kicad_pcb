@@ -2763,6 +2763,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C124378"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5e3a8c46-d55e-4648-ae55-e6ab424c9ee8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/6c61c061-4dfc-4a62-8fdf-49962ce23ee4")
 		(sheetname "/")

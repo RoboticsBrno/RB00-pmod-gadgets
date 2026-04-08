@@ -4146,6 +4146,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C124378"
+			(at 147.32 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "e9b45e51-efbc-448d-b7f8-10bff6aee1b2")
 		)
@@ -5535,6 +5544,15 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 148.59 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2827883"
 			(at 148.59 101.6 0)
 			(effects
 				(font
