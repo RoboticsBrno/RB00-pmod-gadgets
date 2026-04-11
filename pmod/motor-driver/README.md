@@ -5,6 +5,7 @@ Má možnost využívat napětí z PMOD nebo externí napětí. Obsahuje také r
 
 Připojení motorů je přes svorkovnici nebo přes 2.54mm pin header.
 
+![Render](assets/default.png)
 ![Schema](assets/schematic.png)
 ![PCB](assets/pcb.png)
-![Render](assets/render.png)
+
