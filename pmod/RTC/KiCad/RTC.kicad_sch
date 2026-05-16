@@ -1394,7 +1394,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 185.42 157.48 0)
+		(at 149.86 86.36 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim yes)
@@ -1405,7 +1405,7 @@
 		(fields_autoplaced yes)
 		(uuid "85766708-2c4c-4f83-8516-301ea1274b87")
 		(property "Reference" "H1"
-			(at 187.96 156.2099 0)
+			(at 152.4 85.0899 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1416,7 +1416,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 187.96 158.7499 0)
+			(at 152.4 87.6299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1427,7 +1427,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
-			(at 185.42 157.48 0)
+			(at 149.86 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1438,7 +1438,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 185.42 157.48 0)
+			(at 149.86 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1449,7 +1449,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 185.42 157.48 0)
+			(at 149.86 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1781,7 +1781,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 204.47 157.48 0)
+		(at 149.86 92.71 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim yes)
@@ -1792,7 +1792,7 @@
 		(fields_autoplaced yes)
 		(uuid "9bb22898-6357-4f84-ad50-287a1b542ee7")
 		(property "Reference" "H2"
-			(at 207.01 156.2099 0)
+			(at 152.4 91.4399 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1803,7 +1803,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 207.01 158.7499 0)
+			(at 152.4 93.9799 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1814,7 +1814,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
-			(at 204.47 157.48 0)
+			(at 149.86 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1825,7 +1825,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 204.47 157.48 0)
+			(at 149.86 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1836,7 +1836,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 204.47 157.48 0)
+			(at 149.86 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

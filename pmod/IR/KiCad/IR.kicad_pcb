@@ -143,7 +143,7 @@
 				)
 			)
 		)
-		(property "Value" "180"
+		(property "Value" "100"
 			(at 5.08 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -155,7 +155,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -195,6 +195,12 @@
 		(path "/4f832c1a-5b2c-4f70-a637-bf2bca5373f9")
 		(sheetname "/")
 		(sheetfile "IR.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -370,6 +376,12 @@
 		(path "/2f50839a-ec2e-4cba-a2a2-d4010f185af7")
 		(sheetname "/")
 		(sheetfile "IR.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -661,7 +673,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "Net-(D1-K)")
-			(pinfunction "K")
+			(pinfunction "K_1")
 			(pintype "passive")
 			(uuid "7645b810-bfd2-4c9e-bd2d-9ec6a8954296")
 		)
@@ -672,7 +684,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "CLK")
-			(pinfunction "A")
+			(pinfunction "A_2")
 			(pintype "passive")
 			(uuid "4661539a-dda2-4b4b-b52a-33b952a478f1")
 		)
@@ -743,6 +755,12 @@
 		(path "/0c7c9923-551c-4292-871d-44b336610db3")
 		(sheetname "/")
 		(sheetfile "IR.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "3" "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -803,7 +821,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "RX")
-			(pinfunction "OUT")
+			(pinfunction "OUT_1")
 			(pintype "output")
 			(uuid "ef35b124-2bdb-417d-aa7d-8a700d9e94a5")
 		)
@@ -814,7 +832,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "GND")
-			(pinfunction "GND")
+			(pinfunction "GND_2")
 			(pintype "input")
 			(uuid "31ac0862-9c43-4e1e-a649-6cd8c527f3e9")
 		)
@@ -825,7 +843,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "+3.3V")
-			(pinfunction "VCC")
+			(pinfunction "VCC_3")
 			(pintype "input")
 			(uuid "b4be249d-e05d-4cd4-afa1-91a8eb88d430")
 		)
@@ -872,7 +890,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -912,6 +930,12 @@
 		(path "/e05a36fb-5642-46aa-93ea-d1422cb3af39")
 		(sheetname "/")
 		(sheetfile "IR.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2" "3" "4" "5" "6")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1715,7 +1739,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "+3.3V")
-			(pinfunction "Pin_1")
+			(pinfunction "Pin_1_1")
 			(pintype "passive")
 			(uuid "d486fc52-695d-4c2f-bba1-e6f1122593dd")
 		)
@@ -1726,7 +1750,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "GND")
-			(pinfunction "Pin_2")
+			(pinfunction "Pin_2_2")
 			(pintype "passive")
 			(uuid "40ce75c8-36c2-4e65-8b67-be2c764e14dc")
 		)
@@ -1737,7 +1761,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "RX")
-			(pinfunction "Pin_3")
+			(pinfunction "Pin_3_3")
 			(pintype "passive")
 			(uuid "cf07af9b-ebfe-4144-905d-8c48caead4e3")
 		)
@@ -1748,8 +1772,8 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "unconnected-(J1-Pin_4-Pad4)")
-			(pinfunction "Pin_4")
-			(pintype "passive")
+			(pinfunction "Pin_4_4")
+			(pintype "passive+no_connect")
 			(uuid "c2644866-53dd-4e1d-a185-2d1356aaea70")
 		)
 		(pad "5" thru_hole circle
@@ -1759,7 +1783,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "TX")
-			(pinfunction "Pin_5")
+			(pinfunction "Pin_5_5")
 			(pintype "passive")
 			(uuid "5fdcbdf6-cc16-437b-9cf3-365ba5d3dbd6")
 		)
@@ -1770,7 +1794,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "CLK")
-			(pinfunction "Pin_6")
+			(pinfunction "Pin_6_6")
 			(pintype "passive")
 			(uuid "b4ec7bf6-dda2-4857-926a-68b25e12077b")
 		)

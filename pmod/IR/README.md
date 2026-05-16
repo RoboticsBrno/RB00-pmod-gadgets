@@ -7,6 +7,9 @@ Jsou potřeba 3 piny
 - TX (vysílaný signál)
 - CLK (38 KHz signál který očekává přijímač na druhé straně)
 
-![Schema](assets/schema.png)
-![PCB](assets/pcb.png)
 ![3D PCB](assets/default.png)
+
+| ![PCB top](assets/top.png) | ![PCB bottom](assets/bottom.png) |
+| --- | --- |
+
+![Schema](assets/schema.png)

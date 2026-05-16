@@ -1167,7 +1167,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 133.35 71.12 0)
+		(at 115.57 72.39 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1178,7 +1178,7 @@
 		(fields_autoplaced yes)
 		(uuid "03375333-2e71-4b2a-9f82-e1781162c179")
 		(property "Reference" "#PWR05"
-			(at 133.35 77.47 0)
+			(at 115.57 78.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1189,7 +1189,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 133.35 76.2 0)
+			(at 115.57 77.47 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1199,7 +1199,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 133.35 71.12 0)
+			(at 115.57 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1210,7 +1210,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 133.35 71.12 0)
+			(at 115.57 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1221,7 +1221,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 133.35 71.12 0)
+			(at 115.57 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1733,7 +1733,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
-		(at 133.35 68.58 0)
+		(at 115.57 69.85 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim yes)
@@ -1744,7 +1744,7 @@
 		(fields_autoplaced yes)
 		(uuid "9f970aaa-45ac-4c32-b568-1757a0ad65e8")
 		(property "Reference" "H1"
-			(at 135.89 66.0399 0)
+			(at 118.11 67.3099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1755,7 +1755,7 @@
 			)
 		)
 		(property "Value" "MountingHole_Pad"
-			(at 135.89 68.5799 0)
+			(at 118.11 69.8499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1766,7 +1766,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 133.35 68.58 0)
+			(at 115.57 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1777,7 +1777,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 133.35 68.58 0)
+			(at 115.57 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1788,7 +1788,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
-			(at 133.35 68.58 0)
+			(at 115.57 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

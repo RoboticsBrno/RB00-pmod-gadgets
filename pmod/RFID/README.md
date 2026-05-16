@@ -10,6 +10,10 @@ Jsou potřeba 4 piny + napájení:
 - MOSI (Master Out Slave In)
 - SS (Slave Select)
 
+![3D PCB](assets/default.png)
+
+| ![PCB top](assets/top.png) | ![PCB bottom](assets/bottom.png) |
+| --- | --- |
 
 ![Schema](assets/schema.png)
-![3D PCB](assets/default.png)
+
