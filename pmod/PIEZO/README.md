@@ -5,6 +5,9 @@ Piezo modul založený na [bzučáku Same-Sky CPT-1775-3TH](https://cz.mouser.co
 Je potřeba 1 pin
 - PWM (signál ovládání bzučáku)
 
-![Schema](assets/sch.png)
-![PCB](assets/pcb.png)
 ![3D PCB](assets/default.png)
+
+| ![PCB top](assets/top.png) | ![PCB bottom](assets/bottom.png) |
+| --- | --- |
+
+![Schema](assets/sch.png)

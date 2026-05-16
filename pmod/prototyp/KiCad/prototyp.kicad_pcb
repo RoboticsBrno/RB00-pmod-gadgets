@@ -4016,12 +4016,6 @@
 		(path "/f8120b67-7cdd-44cb-81e0-ef0dbf36d364")
 		(sheetname "/")
 		(sheetfile "prototyp.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins)
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -4034,17 +4028,6 @@
 			(fill no)
 			(layer "Cmts.User")
 			(uuid "c348261c-03e1-4926-ade6-7f9bf9bded7f")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 3.45 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.CrtYd")
-			(uuid "84997aa0-30d4-4dc6-803d-125aa6d7909e")
 		)
 		(pad "" np_thru_hole circle
 			(at 0 0)
@@ -12439,22 +12422,6 @@
 		(uuid "cc98b709-78af-4837-befc-7fa14c13b8c3")
 	)
 	(segment
-		(start 82.885 101.27)
-		(end 84.154757 102.539757)
-		(width 0.4)
-		(layer "F.Cu")
-		(net "A")
-		(uuid "1baf1c4a-95e8-4b2d-8a2d-db396e1e08b0")
-	)
-	(segment
-		(start 84.154757 102.539757)
-		(end 92.576185 102.539757)
-		(width 0.4)
-		(layer "F.Cu")
-		(net "A")
-		(uuid "2bd4cd99-cd79-4b92-be91-d89829f4e15c")
-	)
-	(segment
 		(start 131.396185 90.799757)
 		(end 132.796185 92.199757)
 		(width 0.4)
@@ -12493,6 +12460,22 @@
 		(layer "F.Cu")
 		(net "C")
 		(uuid "c8934980-436b-4e8d-9a12-cfdadb255f0f")
+	)
+	(segment
+		(start 82.885 101.27)
+		(end 84.154757 102.539757)
+		(width 0.4)
+		(layer "F.Cu")
+		(net "A")
+		(uuid "1baf1c4a-95e8-4b2d-8a2d-db396e1e08b0")
+	)
+	(segment
+		(start 84.154757 102.539757)
+		(end 92.576185 102.539757)
+		(width 0.4)
+		(layer "F.Cu")
+		(net "A")
+		(uuid "2bd4cd99-cd79-4b92-be91-d89829f4e15c")
 	)
 	(segment
 		(start 84.155243 97.459757)
