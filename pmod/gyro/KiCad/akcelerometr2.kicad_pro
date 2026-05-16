@@ -65,7 +65,7 @@
           "min_thickness": 0.25,
           "pad_connection": 1,
           "remove_islands": 0,
-          "thermal_relief_gap": 0.5,
+          "thermal_relief_gap": 0.25,
           "thermal_relief_spoke_width": 0.5
         }
       },
@@ -147,7 +147,7 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.0,
+        "min_clearance": 0.2,
         "min_connection": 0.0,
         "min_copper_edge_clearance": 0.5,
         "min_groove_width": 0.0,
@@ -160,9 +160,9 @@
         "min_text_height": 0.8,
         "min_text_thickness": 0.08,
         "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.127,
+        "min_track_width": 0.2,
         "min_via_annular_width": 0.1,
-        "min_via_diameter": 0.6,
+        "min_via_diameter": 0.5,
         "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
       },
@@ -630,12 +630,24 @@
           "label": "Datasheet",
           "name": "Datasheet",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Description",
+          "name": "Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
+          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": true,
-      "name": "Default Editing",
+      "name": "",
       "sort_asc": true,
       "sort_field": "Reference"
     },
@@ -685,16 +697,16 @@
       {
         "filename": "akcelerometr2.kicad_sch",
         "name": "akcelerometr2",
-        "uuid": "00000000-0000-0000-0000-000000000000"
+        "uuid": "3ee8cf12-798b-4a99-8d39-0f2ac3c6d2d6"
       }
     ],
-    "used_designators": "",
+    "used_designators": "#PWR7-8,J4",
     "variants": []
   },
   "sheets": [
     [
       "3ee8cf12-798b-4a99-8d39-0f2ac3c6d2d6",
-      "Root"
+      "akcelerometr2"
     ]
   ],
   "text_variables": {},
