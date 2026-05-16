@@ -60,12 +60,12 @@
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.5,
+          "min_clearance": 0.25,
           "min_island_area": 10.0,
           "min_thickness": 0.25,
           "pad_connection": 1,
           "remove_islands": 0,
-          "thermal_relief_gap": 0.5,
+          "thermal_relief_gap": 0.25,
           "thermal_relief_spoke_width": 0.5
         }
       },
@@ -210,7 +210,8 @@
         }
       ],
       "track_widths": [
-        0.0
+        0.0,
+        0.4
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -458,11 +459,14 @@
       "duplicate_sheet_names": "error",
       "endpoint_off_grid": "warning",
       "extra_units": "error",
+      "field_name_whitespace": "warning",
       "footprint_filter": "ignore",
       "footprint_link_issues": "warning",
       "four_way_junction": "ignore",
       "global_label_dangling": "warning",
+      "ground_pin_not_ground": "warning",
       "hier_label_mismatch": "error",
+      "isolated_pin_label": "warning",
       "label_dangling": "error",
       "label_multiple_wires": "warning",
       "lib_symbol_issues": "warning",
@@ -485,6 +489,7 @@
       "similar_power": "warning",
       "simulation_model_issue": "ignore",
       "single_global_label": "ignore",
+      "stacked_pin_name": "warning",
       "unannotated": "error",
       "unconnected_wire_endpoint": "warning",
       "undefined_netclass": "error",
@@ -498,7 +503,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "prototyp.kicad_pro",
+    "filename": "photoresistor.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -516,7 +521,7 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.4,
+        "track_width": 0.2,
         "tuning_profile": "",
         "via_diameter": 0.6,
         "via_drill": 0.3,
@@ -546,6 +551,10 @@
   },
   "schematic": {
     "annotate_start_num": 0,
+    "annotation": {
+      "method": 0,
+      "sort_order": 0
+    },
     "bom_export_filename": "${PROJECTNAME}.csv",
     "bom_fmt_presets": [],
     "bom_fmt_settings": {
@@ -625,6 +634,7 @@
       "default_line_thickness": 6.0,
       "default_text_size": 50.0,
       "field_names": [],
+      "hop_over_size_choice": 0,
       "intersheets_ref_own_page": false,
       "intersheets_ref_prefix": "",
       "intersheets_ref_short": false,
@@ -648,6 +658,7 @@
     "net_format_name": "",
     "page_layout_descr_file": "",
     "plot_directory": "",
+    "reuse_designators": true,
     "space_save_all_events": true,
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
@@ -659,16 +670,18 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "prototyp.kicad_sch",
-        "name": "prototyp",
-        "uuid": "00000000-0000-0000-0000-000000000000"
+        "filename": "photoresistor.kicad_sch",
+        "name": "photoresistor",
+        "uuid": "2ba0d2e0-9ec4-4fc9-abf2-81c0be384cdf"
       }
-    ]
+    ],
+    "used_designators": "",
+    "variants": []
   },
   "sheets": [
     [
-      "88c57a10-05ea-453f-85f6-b42b073eed33",
-      "Root"
+      "2ba0d2e0-9ec4-4fc9-abf2-81c0be384cdf",
+      "photoresistor"
     ]
   ],
   "text_variables": {},
