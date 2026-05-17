@@ -18,7 +18,8 @@ RB00-pmod-gadgets
 │   │   ├── README.md
 │   │   ├── assets
 │   │   │   ├── default.png
-│   │   │   ├── pcb.png
+│   │   │   ├── front.png
+│   │   │   ├── back.png
 │   │   │   └── schema.png
 │   │   └── manual.md
 ...
