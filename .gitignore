@@ -174,3 +174,5 @@ gerber
 
 .venv/
 *.lck
+.render-tmp
+dev-renders
