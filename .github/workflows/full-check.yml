@@ -118,17 +118,17 @@ jobs:
           pcb_image: true
           pcb_image_path: "${{ matrix.project }}/assets/default.png"
           
-      - name: Check if 3D render was created
-        if: ${{ github.event.inputs.generate_renders == 'true' }}
-        id: check-render
-        run: |
-          if [ -f "${{ matrix.project }}/assets/default.png" ]; then
-            echo "3D render successfully created"
-            echo "render_created=true" >> $GITHUB_OUTPUT
-          else
-            echo "3D render was not created"
-            echo "render_created=false" >> $GITHUB_OUTPUT
-          fi
+      # - name: Check if 3D render was created
+      #   if: ${{ github.event.inputs.generate_renders == 'true' }}
+      #   id: check-render
+      #   run: |
+      #     if [ -f "${{ matrix.project }}/assets/default.png" ]; then
+      #       echo "3D render successfully created"
+      #       echo "render_created=true" >> $GITHUB_OUTPUT
+      #     else
+      #       echo "3D render was not created"
+      #       echo "render_created=false" >> $GITHUB_OUTPUT
+      #     fi
 
       - name: Upload DRC report
         uses: actions/upload-artifact@v4
@@ -137,12 +137,12 @@ jobs:
           name: drc-report-${{ steps.project-info.outputs.project_name }}
           path: ${{ steps.project-file.outputs.kicad_dir }}/drc.rpt
           
-      - name: Upload 3D render
-        if: ${{ github.event.inputs.generate_renders == 'true' && steps.check-render.outputs.render_created == 'true' }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: 3d-render-${{ steps.project-info.outputs.project_name }}
-          path: ${{ matrix.project }}/assets/default.png
+      # - name: Upload 3D render
+      #   if: ${{ github.event.inputs.generate_renders == 'true' && steps.check-render.outputs.render_created == 'true' }}
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: 3d-render-${{ steps.project-info.outputs.project_name }}
+      #     path: ${{ matrix.project }}/assets/default.png
 
   summary:
     needs: [find-all-projects, kicad-full-check]
