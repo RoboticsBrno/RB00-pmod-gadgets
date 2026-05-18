@@ -18,8 +18,9 @@ for pcb in "$ROOT_DIR"/*/KiCad/*.kicad_pcb; do
   tmp_out="$DEV_ROOT/$board_name/.render-tmp"
 
   mkdir -p "$assets_dir"
-  WIDTH=200 HEIGHT=200 SUPERSAMPLE=1 ./render_board_assets.sh "$pcb" "$tmp_out"
+  WIDTH=200 HEIGHT=200 SUPERSAMPLE=1 STEP_RENDER_QUALITY=basic ./render_board_assets.sh "$pcb" "$tmp_out"
   cp "$tmp_out/3d-top.png" "$assets_dir/default.png"
   cp "$tmp_out/top-copper.png" "$assets_dir/top.png"
   cp "$tmp_out/bottom-copper.png" "$assets_dir/bottom.png"
+  cp -r "$tmp_out/steps" "$assets_dir/"
 done
