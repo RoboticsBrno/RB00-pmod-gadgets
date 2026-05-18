@@ -10,4 +10,4 @@ Senzor teploty založený na [DS18B20](https://www.analog.com/media/en/technical
 | ![PCB top](assets/top.png) | ![PCB bottom](assets/bottom.png) |
 | --- | --- |
 
-![Schema](assets/schematic.png)
+![Schema](assets/schema.png)

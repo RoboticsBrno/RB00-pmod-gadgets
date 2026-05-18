@@ -8,4 +8,4 @@ Má možnost využívat napětí z PMOD nebo externí napětí. Obsahuje také r
 | ![PCB top](assets/top.png) | ![PCB bottom](assets/bottom.png) |
 | --- | --- |
 
-![Schema](assets/schematic.png)
+![Schema](assets/schema.png)
