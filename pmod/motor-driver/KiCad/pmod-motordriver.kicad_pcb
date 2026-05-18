@@ -2025,6 +2025,7 @@
 		(property "Reference" "J5"
 			(at 14.12 -6.32 90)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "8c07cd22-f9ee-46a9-b604-eb4fabf7b30a")
 			(effects
 				(font
@@ -3346,6 +3347,7 @@
 		(property "Reference" "J4"
 			(at 0 -2.38 0)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "2a96c254-245b-42c6-84f4-cbcda0788364")
 			(effects
 				(font
@@ -4465,6 +4467,7 @@
 		(property "Reference" "J2"
 			(at 5.545 -6.32 0)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "cd340820-c3a8-4f3d-a795-82acc6fbfd4f")
 			(effects
 				(font
@@ -7192,6 +7195,28 @@
 		(layer "Edge.Cuts")
 		(uuid "7ec761e1-60cc-4d85-8403-e48afc22b13e")
 	)
+	(gr_text "B+"
+		(at 187.5 101 90)
+		(layer "F.SilkS")
+		(uuid "e0ffed8b-3aaa-4af5-b25d-da107dd38a73")
+		(effects
+			(font
+				(size 1 1)
+				(bold yes)
+			)
+		)
+	)
+	(gr_text "A+"
+		(at 187.5 116.5 90)
+		(layer "F.SilkS")
+		(uuid "bba9db6c-b0de-4b88-a437-7995da1c0003")
+		(effects
+			(font
+				(size 1 1)
+				(bold yes)
+			)
+		)
+	)
 	(gr_text "FAULT"
 		(at 185.5 99 0)
 		(layer "F.SilkS" knockout)
@@ -7226,6 +7251,18 @@
 				(bold yes)
 			)
 			(justify left)
+		)
+	)
+	(gr_text "GND"
+		(at 182 110 0)
+		(layer "F.SilkS")
+		(uuid "b752f64b-fca0-4694-b0ca-3439d30e9f7e")
+		(effects
+			(font
+				(size 1.4 1.4)
+				(thickness 0.32)
+				(bold yes)
+			)
 		)
 	)
 	(gr_text "45mm"
