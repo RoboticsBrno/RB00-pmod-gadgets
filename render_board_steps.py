@@ -10,6 +10,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import uuid
 ITEM_REF_PATTERNS = [
     re.compile(r'\(property\s+"Reference"\s+"([^"]+)"'),
     re.compile(r'\(fp_text\s+reference\s+"?([^"\s\)]+)"?'),
@@ -120,6 +121,33 @@ def strip_model_blocks(block: str) -> str:
     return "".join(result)
 
 
+def copy_custom_model_assets(source_text: str, source_board: pathlib.Path, temp_board_path: pathlib.Path) -> None:
+    model_paths = set()
+    for match in re.finditer(r'\(model\s+"([^"]+)"', source_text):
+        path = match.group(1)
+        if path.startswith("${KIPRJMOD}") or path.startswith("/"):
+            model_paths.add(path)
+
+    if not model_paths:
+        return
+
+    dest_dir = temp_board_path.parent
+    source_root = source_board.parent
+
+    for model_path in model_paths:
+        if model_path.startswith("${KIPRJMOD}"):
+            relative = model_path.replace("${KIPRJMOD}", "").lstrip("/")
+            src = source_root / relative
+            dst = dest_dir / relative
+        else:
+            src = pathlib.Path(model_path)
+            dst = dest_dir / src.name
+
+        if src.exists() and src.is_file() and (not dst.exists() or src.resolve() != dst.resolve()):
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            dst.write_bytes(src.read_bytes())
+
+
 def filter_board(board_path: pathlib.Path, keep: set[str] | None, hide: set[str] | None, temp_dir: pathlib.Path) -> pathlib.Path:
     if not keep and not hide:
         return board_path
@@ -144,7 +172,7 @@ def filter_board(board_path: pathlib.Path, keep: set[str] | None, hide: set[str]
         cursor = end
     pieces.append(text[cursor:])
 
-    out_path = temp_dir / f"{board_path.stem}-filtered.kicad_pcb"
+    out_path = board_path.parent / f".{board_path.stem}-filtered-{uuid.uuid4().hex[:8]}.kicad_pcb"
     out_path.write_text("".join(pieces), encoding="utf-8")
     return out_path
 
@@ -244,6 +272,7 @@ def main(argv: list[str]) -> int:
                 current_keep.update(expand_keep_tokens(keep, hole_refs) or set())
 
             temp_board = filter_board(board, set(current_keep), hide, tmp_dir)
+            copy_custom_model_assets(temp_board.read_text(encoding="utf-8"), board, temp_board)
             subprocess.run(
                 [
                     "kicad-cli",
