@@ -16,6 +16,9 @@ BOARD_BASENAME="${BOARD_FILE##*/}"
 BOARD_BASENAME="${BOARD_BASENAME%.*}"
 BOARD_DIR="$(dirname "$(dirname "$BOARD_FILE")")"
 ZOOM_FILE="$BOARD_DIR/render.zoom"
+STEP_CONFIG_FILE="${STEP_CONFIG_FILE:-$BOARD_DIR/render.steps}"
+STEP_OUT_DIR="${STEP_OUT_DIR:-$OUT_DIR/steps}"
+STEP_RENDERER="${STEP_RENDERER:-./render_board_steps.py}"
 TMP_DIR="${TMP_DIR:-$OUT_DIR/tmp}"
 USED_FILES=()
 
@@ -39,7 +42,12 @@ else
 fi
 
 if [[ -f "$ZOOM_FILE" ]]; then
-  ZOOM="$(tr -d '[:space:]' < "$ZOOM_FILE")"
+  read -r FIRST_LINE < "$ZOOM_FILE" || true
+  if [[ "$FIRST_LINE" =~ ^[[:space:]]*\[ ]]; then
+    STEP_CONFIG_FILE="$ZOOM_FILE"
+  elif [[ -n "$FIRST_LINE" ]]; then
+    ZOOM="$(tr -d '[:space:]' < "$ZOOM_FILE")"
+  fi
 fi
 
 mkdir -p "$OUT_DIR" "$TMP_DIR"
@@ -229,6 +237,25 @@ render_layer_with_silk() {
 render_3d top "$OUT_DIR/3d-top.png"
 render_layer_with_silk F.Cu F.SilkS "$OUT_DIR/top-copper.png"
 render_layer_with_silk B.Cu B.SilkS "$OUT_DIR/bottom-copper.png" mirror
+
+if [[ -f "$STEP_CONFIG_FILE" ]]; then
+  if [[ ! -f "$STEP_RENDERER" ]]; then
+    echo "Step renderer not found: $STEP_RENDERER" >&2
+    exit 1
+  fi
+
+  mkdir -p "$STEP_OUT_DIR"
+  python3 "$STEP_RENDERER" \
+    "$BOARD_FILE" \
+    "$STEP_OUT_DIR" \
+    --config "$STEP_CONFIG_FILE" \
+    --width "$WIDTH" \
+    --height "$HEIGHT" \
+    --rotate "$ROTATE" \
+    --zoom "$ZOOM" \
+    --quality "${STEP_RENDER_QUALITY:-high}" \
+    --background transparent
+fi
 
 echo "Rendered assets in: $OUT_DIR"
 echo "Used files:"
