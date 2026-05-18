@@ -41,8 +41,8 @@ case "$MODE" in
     STEP_RENDER_QUALITY="${STEP_RENDER_QUALITY:-high}"
     ;;
   dev)
-    WIDTH="${WIDTH:-200}"
-    HEIGHT="${HEIGHT:-200}"
+    WIDTH="${WIDTH:-400}"
+    HEIGHT="${HEIGHT:-400}"
     SUPERSAMPLE="${SUPERSAMPLE:-1}"
     STEP_RENDER_QUALITY="${STEP_RENDER_QUALITY:-basic}"
     ;;
@@ -54,6 +54,10 @@ esac
 
 WIDTH="$WIDTH" HEIGHT="$HEIGHT" SUPERSAMPLE="$SUPERSAMPLE" STEP_RENDER_QUALITY="$STEP_RENDER_QUALITY" \
   ./render_board_assets.sh "$PCB_FILE" "$OUT_DIR"
+if [[ "$MODE" == "full" ]]; then
+  cp -r "$OUT_DIR/steps" "$BOARD_DIR/assets/"
+fi
+
 
 echo "Rendered board: $PCB_FILE"
 echo "Output: $OUT_DIR"
