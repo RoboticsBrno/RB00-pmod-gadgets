@@ -1,3 +1,7 @@
 # Manuál k modulu
 
-Tož vezmete to a dáte to tam. Pak to zapojíte a je to. Hotovo!
+![](assets/steps/01-empty.png)
+
+![](assets/steps/02-usup-connector.png)
+
+![](assets/steps/03-gyro-header.png)
