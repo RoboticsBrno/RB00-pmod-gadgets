@@ -1,5 +1,9 @@
 # Manuál k modulu
 
-- První si připravíme a zapájíme rezistor 330R.
-- [Bzučák](https://cz.mouser.com/ProductDetail/Same-Sky/CPT-1775-3TH?qs=yc9RBI4tIAK9HFcgM%252BStOQ%3D%3D) nemá orientaci.
-  Jakkoliv zapájíme na desku.
+![](assets/steps/01-empty.png)
+
+![](assets/steps/02-resistors-330r.png)
+
+![](assets/steps/03-pmod-header.png)
+
+![](assets/steps/04-buzzer.png)
