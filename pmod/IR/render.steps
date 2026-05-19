@@ -1,24 +1,23 @@
 [render]
 side=top
-zoom=0.75
+zoom=0.65
 keep=H*
 
+[empty]
+side=top
 
 [resistors-100]
 side=top
 keep=R1
 
+[pmod-header]
+side=top
+keep=J1
 
 [diode]
 side=top
 keep=D1
 
-
 [receiver]
 side=top
 keep=IR1
-
-
-[pmod-header]
-side=top
-keep=J1

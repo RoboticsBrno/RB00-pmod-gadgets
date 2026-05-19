@@ -1,25 +1,12 @@
 # Manuál k modulu
 
-Jak ho sestavit
+![](assets/steps/01-empty.png)
 
-1. PMOD konektor
+![](assets/steps/02-resistors-100.png)
 
-    ![PMOD](assets/step1-pmod.png)
+![](assets/steps/03-pmod-header.png)
 
-2. Rezistor 100
+![](assets/steps/04-diode.png)
 
-    ![Resistor](assets/step2-resistor.png)
-
-3. IR diodu
-
-    !!! warning "Ploška na diodě musí směřovat dovnitř desky"
-    ![IR Diode](assets/step3-diode.png)
-
-4. IR Přijímač
-
-    ![Reciever](assets/step4-reciever.png)
-
-5. A máme vše hotovo
-
-    ![Resistor](assets/step5-final.png)
+![](assets/steps/05-receiver.png)
 
