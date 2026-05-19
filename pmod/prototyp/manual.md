@@ -1,3 +1,5 @@
 # Manuál k modulu
 
-Jak ho sestavit
+![](assets/steps/01-empty.png)
+
+![](assets/steps/02-pmod-header.png)
