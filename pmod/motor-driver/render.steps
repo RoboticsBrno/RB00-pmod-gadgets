@@ -3,62 +3,54 @@ side=top
 zoom=0.75
 keep=H*
 
+[empty]
+side=top
 
 [driver]
 side=top
 keep=U1
 
-
 [mosfet]
 side=top
 keep=Q1
-
 
 [led]
 side=top
 keep=D1
 
-
 [resistor-1k]
 side=top
 keep=R2
-
 
 [resistor-10k]
 side=top
 keep=R1
 
-
 [capacitor-100n]
 side=top
 keep=C4
-
 
 [capacitor-10u]
 side=top
 keep=C1
 
-
 [capacitor-2.2u]
 side=top
 keep=C3
-
 
 [capacitor-22u]
 side=top
 keep=C2
 
+[pmod-header]
+side=top
+keep=J1
 
 [headers]
 side=top
 keep=J4,JP1
 
-
 [terminals]
 side=top
 keep=J2,J5
 
-
-[pmod-header]
-side=top
-keep=J1
