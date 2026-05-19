@@ -1,7 +1,7 @@
-# Manuál k RTC
+# Manuál k modulu
 
-Jak ho sestavit?
+![](assets/steps/01-empty.png)
 
-1. poprosíš Orga o destičku (pro RTC převodník)
-2. poprosíš Orga o 2x pin headery
-3. zapájíš podle obrázku
+![](assets/steps/02-usup.png)
+
+![](assets/steps/03-pmod-header.png)
