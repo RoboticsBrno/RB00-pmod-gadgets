@@ -1,21 +1,11 @@
 # Manuál k modulu
 
-Jak ho sestavit
+![](assets/steps/01-empty.png)
 
-1. PMOD konektor
+![](assets/steps/02-resistors-10k.png)
 
-    ![PMOD](assets/step1-pmod.png)
+![](assets/steps/03-capacitors-1uf.png)
 
-2. Rezistory 10k 
+![](assets/steps/04-buttons.png)
 
-    ![Resistor](assets/step2-resistor.png)
-
-3. Tlačítka
-
-    ![Buttons](assets/step3-buttons.png)
-
-
-1. A máme vše hotovo
-
-    ![Resistor](assets/step4-final.png)
-
+![](assets/steps/05-pmod-header.png)
