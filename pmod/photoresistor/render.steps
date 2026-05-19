@@ -3,17 +3,17 @@ side=top
 zoom=0.75
 keep=H*
 
-
-[ldr]
+[empty]
 side=top
-keep=R1
-
 
 [resistor]
 side=top
 keep=R2
 
-
 [pmod-header]
 side=top
 keep=J2
+
+[ldr]
+side=top
+keep=R1
