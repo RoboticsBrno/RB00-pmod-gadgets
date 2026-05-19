@@ -917,7 +917,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Buzzer"
+		(property "Value" "PKHPS0013E4000-A2"
 			(at 213.36 100.3299 0)
 			(show_name no)
 			(do_not_autoplace no)
