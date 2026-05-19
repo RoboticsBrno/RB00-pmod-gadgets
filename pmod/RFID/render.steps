@@ -1,19 +1,24 @@
 [render]
 side=top
 zoom=0.75
-keep=H*
 
+[empty]
+clear=true
+side=top
+keep= 
 
 [pmod-header]
 side=top
 keep=J1
 
-
 [pmod-header-out]
 side=top
 keep=J3
 
+[rst-header]
+side=top
+keep=J4
 
 [rfid-header]
 side=top
-keep=J2,J4
+keep=J2

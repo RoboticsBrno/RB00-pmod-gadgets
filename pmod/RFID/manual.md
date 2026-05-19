@@ -1,20 +1,11 @@
 # Manuál k modulu
 
-Jak ho sestavit
+![](assets/steps/01-empty.png)
 
-1. PMOD konektor
+![](assets/steps/02-pmod-header.png)
 
-    ![PMOD](assets/step1-pmod.png)
+![](assets/steps/03-pmod-header-out.png)
 
-2. Konektor RFID čtečky
+![](assets/steps/04-rst-header.png)
 
-    ![RFID Connector](assets/step2-rfid-connector.png)
-
-3. RESTART jumper
-
-    ![Restart Jumper](assets/step3-restart-jumper.png)
-
-4. Výstupní PMOD
-
-    ![Output PMOD](assets/step4-output-pmod.png)
-
+![](assets/steps/05-rfid-header.png)
