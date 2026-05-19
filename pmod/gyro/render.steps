@@ -3,11 +3,12 @@ side=top
 zoom=0.75
 keep=H*
 
+[empty]
+side=top
 
 [usup-connector]
 side=top
 keep=J2,J3
-
 
 [gyro-header]
 side=top
