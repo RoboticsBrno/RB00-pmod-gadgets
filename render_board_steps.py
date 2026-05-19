@@ -149,7 +149,7 @@ def copy_custom_model_assets(source_text: str, source_board: pathlib.Path, temp_
 
 
 def filter_board(board_path: pathlib.Path, keep: set[str] | None, hide: set[str] | None, temp_dir: pathlib.Path) -> pathlib.Path:
-    if not keep and not hide:
+    if keep is None and not hide:
         return board_path
 
     text = board_path.read_text(encoding="utf-8")
@@ -260,6 +260,7 @@ def main(argv: list[str]) -> int:
         for idx, (section, data) in enumerate(steps, 1):
             side = data.get("side", side_default)
             zoom = data.get("zoom", zoom_default)
+            clear = str(data.get("clear", "")).strip().lower() in {"1", "true", "yes", "on"}
             keep = parse_list(data.get("keep") or data.get("include") or data.get("refs") or data.get("footprints"))
             hide = parse_list(data.get("hide") or data.get("exclude"))
             output_name = data.get("output") or data.get("file")
@@ -267,6 +268,9 @@ def main(argv: list[str]) -> int:
                 output = out_dir / output_name
             else:
                 output = out_dir / make_output_name(idx, section)
+
+            if clear:
+                current_keep = set(base_keep or hole_refs)
 
             if keep is not None:
                 current_keep.update(expand_keep_tokens(keep, hole_refs) or set())
