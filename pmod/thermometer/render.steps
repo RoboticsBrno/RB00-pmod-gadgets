@@ -1,24 +1,20 @@
 [render]
 side=top
-zoom=0.75
+zoom=0.6
 keep=H*
-
 
 [empty]
 side=top
 keep=
 
-
-[thermometer]
-side=top
-keep=U1
-
-
 [resistor-4.7kr]
 side=top
 keep=R1
 
-
 [pmod-header]
 side=top
 keep=J1
+
+[thermometer]
+side=top
+keep=U1
