@@ -1,0 +1,12 @@
+[render]
+side=top
+zoom=0.75
+keep=H*
+
+[empty]
+side=top
+keep=
+
+[pmod-header]
+side=top
+keep=J1
