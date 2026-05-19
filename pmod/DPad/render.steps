@@ -3,22 +3,21 @@ side=top
 zoom=0.75
 keep=H*
 
+[empty]
+side=top
 
 [resistors-10k]
 side=top
-keep=R*
-
-
-[capacitors-1uf]
-side=top
-keep=C*
-
-
-[buttons]
-side=top
-keep=SW*
-
+keep=R1,R2,R3,R4
 
 [pmod-header]
 side=top
 keep=PMOD1
+
+[capacitors-1uf]
+side=top
+keep=C1,C2,C3,C4
+
+[buttons]
+side=top
+keep=SW1,SW2,SW3,SW4
