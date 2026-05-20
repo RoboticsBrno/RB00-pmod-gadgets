@@ -22,6 +22,9 @@ STEP_RENDERER="${STEP_RENDERER:-./render_board_steps.py}"
 TMP_DIR="${TMP_DIR:-$OUT_DIR/tmp}"
 USED_FILES=()
 
+STEP_CLIP="${STEP_CLIP:-0}"
+STEP_HIGHLIGHT="${STEP_HIGHLIGHT:-0}"
+
 if [[ ! -f "$BOARD_FILE" ]]; then
   echo "Board file not found: $BOARD_FILE" >&2
   exit 1
@@ -244,6 +247,10 @@ if [[ -f "$STEP_CONFIG_FILE" ]]; then
     exit 1
   fi
 
+  EXTRA_ARGS=()
+  [[ "$STEP_CLIP" =~ ^(1|true|yes|on)$ ]] && EXTRA_ARGS+=("--clip")
+  [[ "$STEP_HIGHLIGHT" =~ ^(1|true|yes|on)$ ]] && EXTRA_ARGS+=("--highlight")
+
   mkdir -p "$STEP_OUT_DIR"
   python3 "$STEP_RENDERER" \
     "$BOARD_FILE" \
@@ -251,10 +258,11 @@ if [[ -f "$STEP_CONFIG_FILE" ]]; then
     --config "$STEP_CONFIG_FILE" \
     --width "$WIDTH" \
     --height "$HEIGHT" \
-    --rotate "$ROTATE" \
+    --rotate="$ROTATE" \
     --zoom "$ZOOM" \
     --quality "${STEP_RENDER_QUALITY:-high}" \
-    --background transparent
+    --background transparent \
+    "${EXTRA_ARGS[@]}"
 fi
 
 echo "Rendered assets in: $OUT_DIR"

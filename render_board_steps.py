@@ -11,6 +11,14 @@ import subprocess
 import sys
 import tempfile
 import uuid
+
+try:
+    from PIL import Image, ImageChops, ImageDraw
+except ImportError:
+    print("Error: The 'Pillow' library is required for --clip and --highlight features.", file=sys.stderr)
+    print("Please install it using: pip install Pillow", file=sys.stderr)
+    sys.exit(1)
+
 ITEM_REF_PATTERNS = [
     re.compile(r'\(property\s+"Reference"\s+"([^"]+)"'),
     re.compile(r'\(fp_text\s+reference\s+"?([^"\s\)]+)"?'),
@@ -172,7 +180,8 @@ def filter_board(board_path: pathlib.Path, keep: set[str] | None, hide: set[str]
         cursor = end
     pieces.append(text[cursor:])
 
-    out_path = board_path.parent / f".{board_path.stem}-filtered-{uuid.uuid4().hex[:8]}.kicad_pcb"
+    out_path = board_path.parent / \
+        f".{board_path.stem}-filtered-{uuid.uuid4().hex[:8]}.kicad_pcb"
     out_path.write_text("".join(pieces), encoding="utf-8")
     return out_path
 
@@ -180,7 +189,8 @@ def filter_board(board_path: pathlib.Path, keep: set[str] | None, hide: set[str]
 def parse_list(value: str | None) -> set[str] | None:
     if not value:
         return None
-    refs = [part.strip() for part in re.split(r"[\s,]+", value) if part.strip()]
+    refs = [part.strip()
+            for part in re.split(r"[\s,]+", value) if part.strip()]
     return set(refs) if refs else None
 
 
@@ -195,7 +205,8 @@ def expand_keep_tokens(tokens: set[str] | None, hole_refs: set[str]) -> set[str]
 
 
 def make_output_name(step_index: int, step_name: str) -> str:
-    slug = re.sub(r"[^a-zA-Z0-9._-]+", "-", step_name.strip()).strip("-").lower()
+    slug = re.sub(r"[^a-zA-Z0-9._-]+", "-",
+                  step_name.strip()).strip("-").lower()
     if not slug:
         slug = f"step-{step_index:02d}"
     return f"{step_index:02d}-{slug}.png"
@@ -220,6 +231,75 @@ def load_config(config_path: pathlib.Path):
     return defaults, steps
 
 
+def run_kicad_render(board_path: pathlib.Path, output_path: pathlib.Path, args: argparse.Namespace, side: str, zoom: str) -> None:
+    subprocess.run(
+        [
+            "kicad-cli",
+            "pcb",
+            "render",
+            "--output",
+            str(output_path),
+            "--width",
+            str(args.width),
+            "--height",
+            str(args.height),
+            "--side",
+            side,
+            "--rotate",
+            "0,0,0",
+            "--zoom",
+            str(zoom),
+            "--background",
+            args.background,
+            "--quality",
+            args.quality,
+            str(board_path),
+        ],
+        check=True,
+    )
+
+
+def find_connected_bboxes(mask_image: Image.Image, min_area: int = 15) -> list[tuple[int, int, int, int]]:
+    img_copy = mask_image.copy()
+    width, height = img_copy.size
+    pixels = img_copy.load()
+    bboxes = []
+
+    for y in range(height):
+        for x in range(width):
+            if pixels[x, y] == 255:
+                stack = [(x, y)]
+                pixels[x, y] = 0
+
+                comp_min_x, comp_min_y = x, y
+                comp_max_x, comp_max_y = x, y
+                area = 0
+
+                while stack:
+                    cx, cy = stack.pop()
+                    area += 1
+
+                    if cx < comp_min_x:
+                        comp_min_x = cx
+                    if cx > comp_max_x:
+                        comp_max_x = cx
+                    if cy < comp_min_y:
+                        comp_min_y = cy
+                    if cy > comp_max_y:
+                        comp_max_y = cy
+
+                    for nx, ny in ((cx - 1, cy), (cx + 1, cy), (cx, cy - 1), (cx, cy + 1)):
+                        if 0 <= nx < width and 0 <= ny < height:
+                            if pixels[nx, ny] == 255:
+                                pixels[nx, ny] = 0
+                                stack.append((nx, ny))
+
+                if area >= min_area:
+                    bboxes.append(
+                        (comp_min_x, comp_min_y, comp_max_x, comp_max_y))
+    return bboxes
+
+
 def main(argv: list[str]) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("board_file")
@@ -231,6 +311,10 @@ def main(argv: list[str]) -> int:
     parser.add_argument("--zoom", default="0.75")
     parser.add_argument("--quality", default="high")
     parser.add_argument("--background", default="transparent")
+    parser.add_argument("--clip", action="store_true",
+                        help="Clip the outside edges of the board where there are no pixels")
+    parser.add_argument("--highlight", action="store_true",
+                        help="Draw a red rounded rectangle around newly added components")
     args = parser.parse_args(argv)
 
     board = pathlib.Path(args.board_file).resolve()
@@ -260,8 +344,10 @@ def main(argv: list[str]) -> int:
         for idx, (section, data) in enumerate(steps, 1):
             side = data.get("side", side_default)
             zoom = data.get("zoom", zoom_default)
-            clear = str(data.get("clear", "")).strip().lower() in {"1", "true", "yes", "on"}
-            keep = parse_list(data.get("keep") or data.get("include") or data.get("refs") or data.get("footprints"))
+            clear = str(data.get("clear", "")).strip().lower() in {
+                "1", "true", "yes", "on"}
+            keep = parse_list(data.get("keep") or data.get(
+                "include") or data.get("refs") or data.get("footprints"))
             hide = parse_list(data.get("hide") or data.get("exclude"))
             output_name = data.get("output") or data.get("file")
             if output_name:
@@ -272,36 +358,111 @@ def main(argv: list[str]) -> int:
             if clear:
                 current_keep = set(base_keep or hole_refs)
 
+            previous_keep = set(current_keep)
+
             if keep is not None:
-                current_keep.update(expand_keep_tokens(keep, hole_refs) or set())
+                current_keep.update(
+                    expand_keep_tokens(keep, hole_refs) or set())
 
             temp_board = filter_board(board, set(current_keep), hide, tmp_dir)
-            copy_custom_model_assets(temp_board.read_text(encoding="utf-8"), board, temp_board)
-            subprocess.run(
-                [
-                    "kicad-cli",
-                    "pcb",
-                    "render",
-                    "--output",
-                    str(output),
-                    "--width",
-                    str(args.width),
-                    "--height",
-                    str(args.height),
-                    "--side",
-                    side,
-                    "--rotate",
-                    "0,0,0",
-                    "--zoom",
-                    str(zoom),
-                    "--background",
-                    args.background,
-                    "--quality",
-                    args.quality,
-                    str(temp_board),
-                ],
-                check=True,
-            )
+            copy_custom_model_assets(temp_board.read_text(
+                encoding="utf-8"), board, temp_board)
+            run_kicad_render(temp_board, output, args, side, zoom)
+
+            if args.highlight and current_keep != previous_keep:
+                before_board = filter_board(
+                    board, set(previous_keep), hide, tmp_dir)
+                copy_custom_model_assets(before_board.read_text(
+                    encoding="utf-8"), board, before_board)
+
+                before_output = tmp_dir / f".before-{uuid.uuid4().hex[:8]}.png"
+                run_kicad_render(before_board, before_output, args, side, zoom)
+
+                img_before = Image.open(before_output)
+                img_after = Image.open(output)
+
+                diff = ImageChops.difference(img_before, img_after)
+                diff_gray = diff.convert("L")
+
+                diff_thresh = diff_gray.point(lambda p: 255 if p > 20 else 0)
+
+                final_boxes = find_connected_bboxes(diff_thresh, min_area=15)
+
+                if final_boxes:
+                    draw = ImageDraw.Draw(img_after)
+
+                    merge_margin = 7
+                    expanded_boxes = [
+                        [b[0] - merge_margin, b[1] - merge_margin,
+                            b[2] + merge_margin, b[3] + merge_margin]
+                        for b in final_boxes
+                    ]
+
+                    merged = True
+                    while merged:
+                        merged = False
+                        for i in range(len(expanded_boxes)):
+                            for j in range(i + 1, len(expanded_boxes)):
+                                b1, b2 = expanded_boxes[i], expanded_boxes[j]
+                                if not (b1[2] < b2[0] or b1[0] > b2[2] or b1[3] < b2[1] or b1[1] > b2[3]):
+                                    expanded_boxes[i] = [min(b1[0], b2[0]), min(
+                                        b1[1], b2[1]), max(b1[2], b2[2]), max(b1[3], b2[3])]
+                                    del expanded_boxes[j]
+                                    merged = True
+                                    break
+                            if merged:
+                                break
+
+                    for box in expanded_boxes:
+                        left, top, right, bottom = box[0] + merge_margin, box[1] + \
+                            merge_margin, box[2] - \
+                            merge_margin, box[3] - merge_margin
+
+                        box_width = right - left
+                        box_height = bottom - top
+                        component_size = max(box_width, box_height)
+
+                        if component_size < 40:
+                            padding = 7
+                            radius = 4
+                        elif component_size < 120:
+                            padding = 10
+                            radius = 8
+                        else:
+                            padding = 16
+                            radius = 12
+
+                        left = max(0, left - padding)
+                        top = max(0, top - padding)
+                        right = min(img_after.width, right + padding)
+                        bottom = min(img_after.height, bottom + padding)
+
+                        draw.rounded_rectangle(
+                            [left, top, right, bottom], radius=radius, outline="red", width=3)
+
+                    img_after.save(output)
+
+                img_before.close()
+                img_after.close()
+
+            if args.clip:
+                img = Image.open(output)
+
+                if args.background.lower() == "transparent" or img.mode == "RGBA":
+                    bbox = img.getbbox()
+                else:
+                    bg_color = img.getpixel((0, 0))
+                    bg = Image.new(img.mode, img.size, bg_color)
+                    diff = ImageChops.difference(img, bg)
+                    diff_thresh = diff.convert("L").point(
+                        lambda p: 255 if p > 10 else 0)
+                    bbox = diff_thresh.getbbox()
+
+                if bbox:
+                    cropped = img.crop(bbox)
+                    cropped.save(output)
+                img.close()
+
             generated.append(output)
 
     if generated:
