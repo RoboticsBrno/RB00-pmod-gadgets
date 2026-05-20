@@ -31,4 +31,8 @@ for pcb in "$ROOT_DIR"/*/KiCad/*.kicad_pcb; do
   cp "$tmp_out/top-copper.png" "$assets_dir/top.png"
   cp "$tmp_out/bottom-copper.png" "$assets_dir/bottom.png"
   cp -r "$tmp_out/steps" "$assets_dir/"
+
+  if [[ -f "$tmp_out/schema.png" ]]; then
+    cp "$tmp_out/schema.png" "$assets_dir/schema.png"
+  fi
 done
