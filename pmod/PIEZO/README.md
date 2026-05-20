@@ -10,4 +10,4 @@ Je potřeba 1 pin
 | ![PCB top](assets/top.png) | ![PCB bottom](assets/bottom.png) |
 | --- | --- |
 
-![Schema](assets/sch.png)
+![Schema](assets/schema.png)

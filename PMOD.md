@@ -9,14 +9,15 @@ Název složky se bude shodovat s odkazem z webu: `https://pmod.robotikabrno.cz/
 Požadovaná struktura je následující:
 ```bash
 RB00-pmod-gadgets
-├── pmod
-│   ├── IR
-│   │   ├── KiCad
+├── pmod/
+│   ├── IR/
+│   │   ├── KiCad/
 │   │   │   ├── IR.kicad_pcb
 │   │   │   ├── IR.kicad_pro
 │   │   │   ├── IR.kicad_sch
 │   │   ├── README.md
-│   │   ├── assets
+│   │   ├── assets/
+│   │   │   ├── steps/
 │   │   │   ├── default.png
 │   │   │   ├── front.png
 │   │   │   ├── back.png
