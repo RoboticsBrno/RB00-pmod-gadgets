@@ -237,9 +237,57 @@ render_layer_with_silk() {
   track_file "$output"
 }
 
+render_schematic() {
+  local sch_file="${BOARD_FILE%.kicad_pcb}.kicad_sch"
+  local svg_dir="$TMP_DIR/sch_svgs"
+  local output="$OUT_DIR/schema.png"
+
+  if [[ ! -f "$sch_file" ]]; then
+    echo "Schematic file not found: $sch_file" >&2
+    return
+  fi
+
+  mkdir -p "$svg_dir"
+
+  kicad-cli sch export svg \
+    --output "$svg_dir/" \
+    --theme "KiCad Default" \
+    --exclude-drawing-sheet \
+    "$sch_file"
+
+  local first_svg
+  first_svg=$(find "$svg_dir" -name "*.svg" | sort | head -n 1)
+
+  if [[ -n "$first_svg" ]]; then
+    rsvg-convert \
+      --format png \
+      --width 3000 \
+      --keep-aspect-ratio \
+      --output "$output" \
+      "$first_svg"
+
+    "${IMG_CONVERT[@]}" "$output" -trim +repage "$output"
+
+    local bg_color
+    bg_color=$("${IMG_CONVERT[@]}" "$output" -format "%[pixel:p{0,0}]" info:)
+
+    "${IMG_CONVERT[@]}" "$output" \
+      -fuzz 5% \
+      -transparent "$bg_color" \
+      -trim +repage \
+      -background "$bg_color" -flatten \
+      -bordercolor "$bg_color" -border 50 \
+      "$output"
+
+    track_file "$output"
+  fi
+}
+
 render_3d top "$OUT_DIR/3d-top.png"
 render_layer_with_silk F.Cu F.SilkS "$OUT_DIR/top-copper.png"
 render_layer_with_silk B.Cu B.SilkS "$OUT_DIR/bottom-copper.png" mirror
+
+render_schematic
 
 if [[ -f "$STEP_CONFIG_FILE" ]]; then
   if [[ ! -f "$STEP_RENDERER" ]]; then
