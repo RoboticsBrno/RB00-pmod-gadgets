@@ -1472,6 +1472,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C160404"
+			(at 111.76 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "c81f00a2-c3b3-446a-b714-48fd9063ef55")
 		)
@@ -1627,6 +1638,17 @@
 			)
 		)
 		(property "Description" "Generic connectable mounting pin connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 111.76 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C160404"
 			(at 111.76 85.09 0)
 			(hide yes)
 			(show_name no)
