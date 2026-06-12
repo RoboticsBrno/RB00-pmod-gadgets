@@ -6494,7 +6494,7 @@
 		(layer "Edge.Cuts")
 		(uuid "41ae8517-d56a-474d-aea1-80840260a6a8")
 	)
-	(gr_text "BTN"
+	(gr_text "V"
 		(at 63.9 32.7 0)
 		(layer "F.SilkS")
 		(uuid "fea12335-def7-49f9-92db-fdfe02d8d70f")
@@ -6518,7 +6518,7 @@
 			(justify left)
 		)
 	)
-	(gr_text "V"
+	(gr_text "BTN"
 		(at 63.9 37.95 0)
 		(layer "F.SilkS")
 		(uuid "f1035acc-1b0a-428f-bce7-a6317c4e9eea")
