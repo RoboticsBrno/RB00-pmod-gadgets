@@ -1,6 +1,6 @@
-# Ukázkový modul
+# Světelný senzor
 
-Co to je?
+Tento modul slouží k měření intenzity světla. Využívá fotorezistor LDR07 pro převod dopadajícího světla na změnu odporu, kterou lze následně otestovat pomocí mikrokontroléru.
 
 ![3D PCB](assets/default.png)
 

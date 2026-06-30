@@ -1,6 +1,6 @@
-# Joystick
+# Joystick PMOD
 
-Co to je?
+Tento modul umožňuje připojit joystick k vašemu systému PMOD. Poskytuje jednoduché rozhraní pro čtení polohy páčky a tlačítka.
 
 ![3D PCB](assets/default.png)
 

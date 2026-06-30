@@ -1,6 +1,6 @@
-# Mikrofon
+# Mikrofonní Modul MIC
 
-Co to je?
+Tento modul umožňuje jednoduché připojení mikrofonu. Slouží pro snímání zvuku a jeho zpracování v elektronických projektech.
 
 ![3D PCB](assets/default.png)
 

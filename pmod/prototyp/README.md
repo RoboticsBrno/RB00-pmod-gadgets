@@ -1,6 +1,6 @@
-# Ukázkový modul
+# Prototypovací modul PMOD
 
-Co to je?
+Tento modul slouží jako flexibilní platforma pro experimentování a rychlé vytváření prototypů elektronických obvodů. Nabízí základní PMOD konektor pro snadné připojení a testování různých komponent.
 
 ![3D PCB](assets/default.png)
 
