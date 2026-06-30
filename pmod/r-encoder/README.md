@@ -1,6 +1,6 @@
-# R-Encoder
+# Rotanční Enkodér
 
-Co to je?
+Tento modul slouží k čtení signálu z rotančního enkodéru.
 
 ![3D PCB](assets/default.png)
 
@@ -8,4 +8,3 @@ Co to je?
 | --- | --- |
 
 ![Schema](assets/schema.png)
-

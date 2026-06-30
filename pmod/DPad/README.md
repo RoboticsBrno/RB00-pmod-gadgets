@@ -1,6 +1,6 @@
-# Ovládací tlačítka 
+# D-Pad Modul
 
-Deska se čtyřmi tlačítky pro ovládání různých funkcí.
+Tento modul poskytuje čtyři tlačítka (switche) pro ovládání zařízení. Slouží k jednoduchému zadávání příkazů nebo navigaci v rozhraní.
 
 ![3D PCB](assets/default.png)
 

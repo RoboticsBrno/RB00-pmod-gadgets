@@ -1,7 +1,6 @@
-# Motor driver
+# Řídicí modul motoru
 
-PMOD modul co umí řídit dva DC motory, používá dual h-bridge DRV8833.
-Má možnost využívat napětí z PMOD nebo externí napětí. Obsahuje také reverse polarity protection.
+Tento PMOD modul slouží k řízení malých stejnosměrných motorů. Obsahuje integrovaný ovladač DRV8833PWP a několik pasivních součástek, které zajišťují stabilní provoz a ochranu obvodu. 
 
 ![3D PCB](assets/default.png)
 

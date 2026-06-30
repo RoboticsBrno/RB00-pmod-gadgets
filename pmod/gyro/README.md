@@ -1,6 +1,6 @@
-# Modul s gyroskopem a akcelerometrem
+# Gyroskopický Senzor
 
-Je to modul s gyroskopem a akcelerometrem, přesněji adaptér na modul [akceloremetr s gyroskopem na aliexpresu](https://www.aliexpress.com/item/1005007479869249.html).
+Tento modul slouží ke snímání úhové rychlosti v různých osách. Umožňuje tak například měření otáčení nebo pohybu zařízení ve třech rovinách. Na desce jsou k dispozici konektory J2–J4 pro připojení a napájení modulu.
 
 ![3D PCB](assets/default.png)
 

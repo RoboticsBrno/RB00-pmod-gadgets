@@ -1,9 +1,6 @@
-# Senzor teploty
+# Teplotní senzor
 
-Senzor teploty založený na [DS18B20](https://www.analog.com/media/en/technical-documentation/data-sheets/ds18b20.pdf)
-
-#### Využívá napájení a 1 pin
-- 1wire – komunikace s DS18B20
+Tento modul slouží k měření teploty s využitím digitálního senzoru DS18B20.
 
 ![3D PCB](assets/default.png)
 
