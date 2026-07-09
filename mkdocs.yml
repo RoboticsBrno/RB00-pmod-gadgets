@@ -116,12 +116,12 @@ nav:
   - Joystick:
       - joystick/README.md
       - joystick/manual.md
-  - Mikrofon:
-      - MIC/README.md
-      - MIC/manual.md
-  - Motor Driver:
-      - motor-driver/README.md
-      - motor-driver/manual.md
+#  - Mikrofon:
+#      - MIC/README.md
+#      - MIC/manual.md
+#  - Motor Driver:
+#      - motor-driver/README.md
+#      - motor-driver/manual.md
   - Fotoresistor:
       - photoresistor/README.md
       - photoresistor/manual.md
