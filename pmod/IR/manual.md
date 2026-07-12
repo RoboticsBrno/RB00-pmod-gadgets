@@ -30,7 +30,7 @@ Zapájejte pinový konektor **J1** na horní stranu desky.
 ### 4. Dioda
 
 !!! danger "Pozor"
-    **D1** (dioda) — Dioda je polarizovaná — zkontrolujte orientaci anody a katody před pájením.
+    **D1** (dioda) - Dioda je polarizovaná - kratší nožička jde do hranaté díry
 
 Zapájejte diodu **D1** (dioda) na horní stranu desky.
 

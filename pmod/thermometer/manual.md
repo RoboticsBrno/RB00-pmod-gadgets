@@ -2,11 +2,11 @@
 
 ## Součástky
 
-| Označení | Typ                     | Hodnota | Počet |
-| -------- | ----------------------- | ------- | ----- |
-| J1       | pinový konektor 2.54 mm | —       | 1     |
-| R1       | rezistor                | 4.7 kΩ  | 1     |
-| U1       | teploměrný senzor       | DS18B20 | 1     |
+| Označení | Typ               | Hodnota | Počet |
+| -------- | ----------------- | ------- | ----- |
+| J1       | pinový konektor   | 6pin    | 1     |
+| R1       | rezistor          | 4.7 kΩ  | 1     |
+| U1       | teploměrný senzor | DS18B20 | 1     |
 
 ### 1. Prázdná deska
 
