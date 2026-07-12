@@ -1444,27 +1444,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-prazdna-deska" class="md-nav__link">
+  <a href="#1-pinovy-konektor-pro-modul" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Prázdná deska
+      1. Pinový konektor pro modul
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-jst-sh-konektory" class="md-nav__link">
+  <a href="#2-rtc-modul" class="md-nav__link">
     <span class="md-ellipsis">
-      2. JST SH konektory
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-pinovy-konektor-254-mm" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Pinový konektor 2.54 mm
+      2. RTC modul
     </span>
   </a>
   
@@ -1612,27 +1603,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-prazdna-deska" class="md-nav__link">
+  <a href="#1-pinovy-konektor-pro-modul" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Prázdná deska
+      1. Pinový konektor pro modul
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-jst-sh-konektory" class="md-nav__link">
+  <a href="#2-rtc-modul" class="md-nav__link">
     <span class="md-ellipsis">
-      2. JST SH konektory
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-pinovy-konektor-254-mm" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Pinový konektor 2.54 mm
+      2. RTC modul
     </span>
   </a>
   
@@ -1674,28 +1656,31 @@
 </thead>
 <tbody>
 <tr>
-<td>J2, J3</td>
-<td>JST SH konektor</td>
-<td>—</td>
-<td>2</td>
-</tr>
-<tr>
 <td>J1</td>
 <td>pinový konektor 2.54 mm</td>
+<td>6pin</td>
+<td>1</td>
+</tr>
+<tr>
+<td>—</td>
+<td>modul RTC-DS3231</td>
 <td>—</td>
 <td>1</td>
 </tr>
 </tbody>
 </table>
-<h3 id="1-prazdna-deska">1. Prázdná deska<a class="headerlink" href="#1-prazdna-deska" title="Permanent link">¤</a></h3>
-<p>Prázdná deska připravená k osazování.</p>
-<p><a class="glightbox" href="../assets/steps/01-empty.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/steps/01-empty.png" /></a></p>
-<h3 id="2-jst-sh-konektory">2. JST SH konektory<a class="headerlink" href="#2-jst-sh-konektory" title="Permanent link">¤</a></h3>
-<p>Zapájejte <strong>J2</strong> a <strong>J3</strong> (JST SH konektor) na horní stranu DPS.</p>
-<p><a class="glightbox" href="../assets/steps/02-usup.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/steps/02-usup.png" /></a></p>
-<h3 id="3-pinovy-konektor-254-mm">3. Pinový konektor 2.54 mm<a class="headerlink" href="#3-pinovy-konektor-254-mm" title="Permanent link">¤</a></h3>
-<p>Zapájejte pinový konektor <strong>J1</strong> na horní stranu desky.</p>
+<h3 id="1-pinovy-konektor-pro-modul">1. Pinový konektor pro modul<a class="headerlink" href="#1-pinovy-konektor-pro-modul" title="Permanent link">¤</a></h3>
+<p>Zapájejte 6-pinový konektor <strong>J1</strong> na horní stranu desky.</p>
 <p><a class="glightbox" href="../assets/steps/03-pmod-header.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../assets/steps/03-pmod-header.png" /></a></p>
+<h3 id="2-rtc-modul">2. RTC modul<a class="headerlink" href="#2-rtc-modul" title="Permanent link">¤</a></h3>
+<p>Zapájejte RTC modul Vyčnívající z desky tak, aby piny seděly k sobě:</p>
+<div class="highlight"><pre><span></span><code>| Deska | Modul |
+| ----- | ----- |
+| GND   | GND   |
+| VCC   | VCC   |
+| SDA   | SDA   |
+| SCL   | SCL   |
+</code></pre></div>
 
 
 
