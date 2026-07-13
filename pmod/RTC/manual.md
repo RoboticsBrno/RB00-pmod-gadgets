@@ -4,12 +4,12 @@
 
 | Označení | Typ                     | Hodnota | Počet |
 | -------- | ----------------------- | ------- | ----- |
-| J1       | pinový konektor 2.54 mm | 6pin    | 1     |
+| J1       | pinový konektor 2.54 mm | 4pin    | 1     |
 | —        | modul RTC-DS3231        | —       | 1     | 
 
 ### 1. Pinový konektor pro modul
 
-Zapájejte 6-pinový konektor **J1** na horní stranu desky.
+Zapájejte 4-pinový konektor **J1** na horní stranu desky.
 
 ![](assets/steps/03-pmod-header.png)
 
